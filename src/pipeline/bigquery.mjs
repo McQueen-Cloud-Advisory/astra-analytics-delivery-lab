@@ -1,7 +1,10 @@
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { TARGET, REQUIRED_TABLES } from './schemas.mjs';
-import { PipelineError, requireThat, LIMITS, hash, contextParams, publicationSql, publicationParams, decodeRows, validateCandidate, validatePublished } from './core.mjs';
+import { PipelineError, requireThat, LIMITS, hash, batchIdentity, contextParams, publicationSql, publicationParams, decodeRows, validateCandidate, validatePublished } from './core.mjs';
+import { composeIncrementalPackage } from '../data/retained-history.mjs';
+import { canonicalJson } from '../data/source-package.mjs';
+import { originalLoadIds, readOriginalLoadMetadata, reconstructRetainedParent, retainedRawSql } from './retained-cloud-history.mjs';
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const safeBytes = value => { const n = Number(value); requireThat(value !== undefined && value !== null && Number.isSafeInteger(n) && n >= 0, 'UNKNOWN_QUERY_BYTES'); return n; };
@@ -66,10 +69,11 @@ export async function verifyResources(client, manifest, now = Date.now()) {
   return bytes;
 }
 
-export async function runCloudSlice({ client, source, oracle, batchId, transformSql, readSql, mode, attempt, save, directory, resourceManifest, stopBeforePublish = false, retainedBatch }) {
+export async function runCloudSlice({ client, source, oracle, batchId, transformSql, readSql, mode, attempt, save, directory, resourceManifest, stopBeforePublish = false, retainedBatch, deltaInput }) {
   requireThat(['execute', 'dry-run'].includes(mode), 'INVALID_CLOUD_MODE');
   requireThat(!stopBeforePublish || (mode === 'execute' && source.manifest.fixture_or_profile === 'FIX-02'), 'INVALID_CONTROLLED_STOP');
   requireThat(source.manifest.fixture_or_profile !== 'FIX-02' || retainedBatch?.source?.manifest?.fixture_or_profile === 'FIX-01', 'MISSING_RETAINED_BASELINE');
+  requireThat(!deltaInput || (source.manifest.fixture_or_profile === 'FIX-02' && retainedBatch && !stopBeforePublish), 'INVALID_DELTA_MODE');
   attempt.stage = 'VERIFYING_RESOURCES'; await save();
   const currentStorage = await verifyResources(client, resourceManifest);
   attempt.stage = 'RESOURCES_VERIFIED'; await save();
@@ -126,15 +130,50 @@ export async function runCloudSlice({ client, source, oracle, batchId, transform
   const readEstimate = await query('read_estimate', readSql, { batch_id: batchId }, { dry: true });
   const transformEstimate = await query('transform_estimate', transformSql, transformParams, { dry: true });
   const publishEstimate = await query('publish_estimate', publicationSql, { batch_id: batchId, lines_json: '[]', events_json: '[]', manifest_json: '[]' }, { dry: true, script: true });
-  const estimated = readEstimate * (retainedBatch ? 3 : 2) + transformEstimate + publishEstimate;
+  const rawEstimate = deltaInput ? await query('parent_raw_estimate', retainedRawSql, { batch_id: retainedBatch.batchId }, { dry: true }) : 0;
+  const estimated = readEstimate * (deltaInput ? 4 : retainedBatch ? 3 : 2) + transformEstimate + publishEstimate + rawEstimate;
   requireThat(estimated <= LIMITS.attemptBytes, 'PROJECTED_ATTEMPT_LIMIT');
-  if (mode === 'dry-run') return { outcome: 'DRY_RUN_ONLY', batch_id: batchId, estimated_bytes: estimated, google_sql_execution: 'Not Run' };
+  if (mode === 'dry-run') return { outcome: 'DRY_RUN_ONLY', batch_id: batchId, estimated_bytes: estimated, google_sql_execution: 'Not Run', parent_history_verification: 'Not Run' };
+
+  let deltaEvidence;
+  if (deltaInput) {
+    attempt.stage = 'VERIFYING_ACCEPTED_PARENT'; await save();
+    const parentRows = decodeRows(await query('read_parent', readSql, { batch_id: retainedBatch.batchId }));
+    validatePublished(parentRows, retainedBatch.source, retainedBatch.oracle, retainedBatch.batchId, transformHash);
+    attempt.parent_load_job_ids = originalLoadIds(retainedBatch.batchId); await save();
+    const loadJobs = await readOriginalLoadMetadata(client, retainedBatch, resourceManifest);
+    const rawRows = await query('read_parent_raw', retainedRawSql, { batch_id: retainedBatch.batchId });
+    const reconstructed = reconstructRetainedParent({ rows: rawRows, pinnedParent: deltaInput.pinnedParent, parentBatchId: retainedBatch.batchId,
+      publishedAt: parentRows.manifests[0].published_at, loadJobs, resourceManifest });
+    const composed = composeIncrementalPackage({ parent: reconstructed.parent, delta: deltaInput.envelope });
+    requireThat(composed.source.sourcePackageHash === source.sourcePackageHash && batchIdentity(composed.source) === batchId, 'DELTA_RESOLVED_IDENTITY_MISMATCH');
+    source = composed.source;
+    const binding = {
+      version: 'RUNTIME-RETAINED-PARENT-v1.0', verification: 'PASS', verified_at_utc: new Date().toISOString(),
+      project_id: TARGET.projectId, location: TARGET.location, runtime_identity: TARGET.serviceAccount,
+      parent_batch_id: retainedBatch.batchId, parent_source_package_hash: retainedBatch.source.sourcePackageHash,
+      parent_published_at: parentRows.manifests[0].published_at, parent_status: 'READY', parent_validation_result: 'PASS',
+      parent_read_job_id: attempt.jobs.find(j => j.stage === 'read_parent' && j.job_id).job_id,
+      parent_raw_read_job_id: attempt.jobs.find(j => j.stage === 'read_parent_raw' && j.job_id).job_id,
+      original_load_jobs: loadJobs,
+      raw_table_expirations: resourceManifest.resources.filter(r => r.kind === 'table' && r.datasetId === TARGET.workDataset)
+        .map(r => ({ dataset_id: r.datasetId, table_id: r.tableId, expires_at_utc: r.expiresAt })),
+      physical_occurrence_evidence: reconstructed.physical_occurrence_evidence,
+    };
+    const provenance = { composition: composed.composition, cloud_parent_binding: binding };
+    deltaEvidence = { ...provenance, provenance_hash: hash(canonicalJson(provenance)) };
+    // Durable evidence must succeed before existing-target reconciliation or any
+    // downstream load/publication. No caller-provided READY flag is consulted.
+    attempt.delta_provenance = deltaEvidence; attempt.stage = 'DELTA_PARENT_VERIFIED_AND_COMPOSED'; await save();
+  }
+  const deltaStatus = deltaEvidence ? { parent_history_verification: 'Pass', runtime_composition: 'Pass' } : {};
 
   const previous = decodeRows(await query('read_before', readSql, { batch_id: batchId }));
   if (previous.lines.length || previous.events.length || previous.manifests.length) {
     validatePublished(previous, source, oracle, batchId, transformHash);
     const retained = await reconcileRetained();
-    return { outcome: 'VERIFIED_NO_OP', batch_id: batchId, billed_bytes: billed, line_count: previous.lines.length, publication: 'Pass', retained_batch: retained };
+    return { outcome: 'VERIFIED_NO_OP', batch_id: batchId, billed_bytes: billed, line_count: previous.lines.length, publication: 'Pass',
+      publication_action: 'EXISTING_BATCH_VERIFIED', new_batch_published: false, retained_batch: retained, delta_provenance: deltaEvidence, ...deltaStatus };
   }
   for (const [tableId, records] of [['raw_lines', source.physicalLines], ['raw_event_versions', source.physicalEvents]]) {
     const path = join(directory, `${batchId}-${tableId}.jsonl`), jobId = `po_load_${tableId}_${batchId.slice(6, 54)}`;
@@ -169,5 +208,6 @@ export async function runCloudSlice({ client, source, oracle, batchId, transform
   validatePublished(published, source, oracle, batchId, transformHash);
   const retained = await reconcileRetained();
   return { outcome: 'PUBLISHED_AND_RECONCILED', batch_id: batchId, line_count: candidate.lines.length, event_count: candidate.events.length, billed_bytes: billed,
-    validation: 'PASS', publication: 'Pass', retained_batch: retained, desktop_verification: 'Not Run' };
+    validation: 'PASS', publication: 'Pass', publication_action: 'NEW_BATCH_PUBLISHED', new_batch_published: true,
+    retained_batch: retained, delta_provenance: deltaEvidence, ...deltaStatus, desktop_verification: 'Not Run' };
 }

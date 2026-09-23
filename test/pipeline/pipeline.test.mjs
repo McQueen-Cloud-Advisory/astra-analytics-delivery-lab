@@ -1,31 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile, mkdtemp, rm } from 'node:fs/promises';
+import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readSourcePackage } from '../../src/data/source-package.mjs';
-import { TARGET, REQUIRED_TABLES } from '../../src/pipeline/schemas.mjs';
+import { TARGET } from '../../src/pipeline/schemas.mjs';
 import { batchIdentity, hash, LIMITS, publicationSql, publicationParams, quotaDate, safeFailure, validateCandidate, validatePublished, validateReadiness } from '../../src/pipeline/core.mjs';
 import { reserveAttempt } from '../../src/pipeline/ledger.mjs';
 import { findOrCreateJob, runCloudSlice, settlePriorJobs, verifyResources } from '../../src/pipeline/bigquery.mjs';
 import { main, parseArguments } from '../../scripts/run-pipeline.mjs';
 
-const fixture = new URL('../../fixtures/po/FIX-01/', import.meta.url);
-const source = await readSourcePackage(fileURLToPath(fixture));
-const oracle = JSON.parse(await readFile(new URL('expected.json', fixture), 'utf8'));
-const fixture2 = new URL('../../fixtures/po/FIX-02/', import.meta.url);
-const source2 = await readSourcePackage(fileURLToPath(fixture2));
-const oracle2 = JSON.parse(await readFile(new URL('expected.json', fixture2), 'utf8'));
-const transformSql = await readFile(new URL('../../sql/fix01-transform.sql', import.meta.url), 'utf8');
-const readSql = await readFile(new URL('../../sql/read-published-batch.sql', import.meta.url), 'utf8');
-const batchId = batchIdentity(source), transformHash = hash(transformSql);
-const candidate = (input = source, expected = oracle) => ({ lines: input.lines.map(line => ({ ...line, ...expected.line_states.find(e => e.line_id === line.line_id), source_business_date: expected.business_date })),
-  events: input.events.map(e => ({ ...e, ...expected.event_states.find(s => s.event_id === e.event_id && s.revision === e.revision) })), manifests: [] });
-const published = (input = source, expected = oracle) => {
-  const p = publicationParams(candidate(input, expected), input, batchIdentity(input), transformHash), at = '2026-09-22T03:00:00Z';
-  return Object.fromEntries([['lines', p.lines_json], ['events', p.events_json], ['manifests', p.manifest_json]].map(([k, json]) => [k, JSON.parse(json).map(r => ({ ...r, published_at: at }))]));
-};
+import { fixture2, source, source2, oracle, oracle2, transformSql, readSql, batchId, transformHash, candidate, published, mockCloud } from '../../test-support/pipeline-cloud.mjs';
+
 const now = new Date('2026-09-22T02:10:00Z');
 const readiness = () => ({ schema_version: 1, project_id: TARGET.projectId, location: TARGET.location, pipeline_service_account: TARGET.serviceAccount,
   gate5_decision_ref: 'DEC-G5-001', cloud_execution_authorized: true, billing_verified: true, runtime_identity_verified: true, controls_verified: true,
@@ -137,42 +123,6 @@ test('prior uncertain queries are reconciled before a new attempt; absent unknow
   await assert.rejects(settlePriorJobs({ job: () => ({ getMetadata: async () => { throw Object.assign(new Error('absent'), { code: 404 }); } }) }, prior, async () => {}), /UNKNOWN_PRIOR_JOB/);
 });
 
-function mockCloud({ invalidCandidate = false, alreadyPublished = false, wrongRegion = false, missingScriptBytes = false, correction = false } = {}) {
-  const input = correction ? source2 : source, expected = correction ? oracle2 : oracle, inputBatch = batchIdentity(input);
-  const current = Date.now(), first = current - 10000;
-  const manifest = { version: '1.0', approval: 'DEC-G5-001', projectId: TARGET.projectId, location: TARGET.location, serviceAccountEmail: TARGET.serviceAccount,
-    firstResourceAt: new Date(first).toISOString(), absoluteExpiresAt: new Date(first + 14 * 86400000).toISOString(), resources: REQUIRED_TABLES.map(t => ({ kind: 'table', ...t, status: 'verified', expiresAt: new Date(first + (t.datasetId === TARGET.workDataset ? 7 : 14) * 86400000).toISOString() })) };
-  const jobs = new Map(), calls = [], batches = new Map();
-  if (correction) batches.set(batchId, published());
-  if (alreadyPublished) batches.set(inputBatch, published(input, expected));
-  const rows = result => Object.entries(result).flatMap(([k, values]) => values.map(r => ({ row_kind: { lines: 'LINE', events: 'EVENT', manifests: 'MANIFEST' }[k], row_json: JSON.stringify(r) })));
-  const makeJob = (id, configuration, data = [], loadRows) => {
-    const metadata = { jobReference: { projectId: TARGET.projectId, location: TARGET.location, jobId: id }, configuration, status: { state: 'DONE' },
-      statistics: loadRows !== undefined ? { load: { outputRows: String(loadRows) } } : { query: { totalBytesBilled: '10485760' } } };
-    const job = { metadata, getMetadata: async () => [metadata], getQueryResults: async () => [data] }; jobs.set(id, job); return job;
-  };
-  const client = { projectId: TARGET.projectId,
-    job: id => jobs.get(id) ?? { getMetadata: async () => { throw Object.assign(new Error('absent'), { code: 404 }); } },
-    dataset: datasetId => ({ getMetadata: async () => [{ datasetReference: { projectId: TARGET.projectId, datasetId }, location: wrongRegion ? 'US' : TARGET.location }],
-      table: tableId => ({ getMetadata: async () => [{ type: 'TABLE', tableReference: { projectId: TARGET.projectId, datasetId, tableId },
-        schema: REQUIRED_TABLES.find(t => t.tableId === tableId).schema, numBytes: '1000', expirationTime: String(Date.parse(manifest.resources.find(t => t.tableId === tableId).expiresAt)) }],
-      createLoadJob: async (path, config) => { calls.push(`load:${tableId}`); const count = (await readFile(path, 'utf8')).trimEnd().split('\n').length;
-        return [makeJob(config.jobId, { load: { ...config, destinationTable: { projectId: TARGET.projectId, datasetId, tableId } } }, [], count)]; } }) }),
-    createQueryJob: async config => {
-      if (config.dryRun) { calls.push('dry'); return [{ metadata: { configuration: { dryRun: true }, statistics: { totalBytesProcessed: '1000' } } }]; }
-      calls.push(config.labels.stage);
-      let data;
-      if (config.query === readSql) data = rows(batches.get(config.params.batch_id) ?? { lines: [], events: [], manifests: [] });
-      else if (config.query === transformSql) { const c = candidate(input, expected); if (invalidCandidate) c.lines[0].remaining_qty++; data = rows(c); }
-      else if (config.query === publicationSql) { batches.set(inputBatch, published(input, expected)); data = []; }
-      else assert.fail('unexpected SQL');
-      const job = makeJob(config.jobId, { query: config }, data);
-      if (missingScriptBytes && config.query === publicationSql) delete job.metadata.statistics.query.totalBytesBilled;
-      return [job];
-    },
-  };
-  return { client, manifest, calls, batches, input, expected };
-}
 let mockAttempt = 0;
 async function runMock(options, mode = 'execute', existingMock) {
   const mock = existingMock ?? mockCloud(options), directory = await mkdtemp(join(tmpdir(), 'astra-pipeline-'));

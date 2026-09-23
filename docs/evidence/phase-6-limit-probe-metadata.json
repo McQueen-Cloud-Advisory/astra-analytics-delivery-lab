@@ -1,0 +1,20 @@
+{
+  "observed_at_utc": "2026-09-23T23:08:51.128Z",
+  "attempt_id": "450844cd619c42deacdaaddf7e4f46d3",
+  "job_id": "po_val_limit_c9f2cbb3a6e4ec1d69ac_450844cd619c42deacdaaddf7e4f46d3",
+  "workload_submitted": false,
+  "observation": {
+    "status": "FOUND",
+    "reference": {
+      "projectId": "astra-po-lab-20260921",
+      "jobId": "po_val_limit_c9f2cbb3a6e4ec1d69ac_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4"
+    },
+    "state": "DONE",
+    "error_reason": "bytesBilledLimitExceeded",
+    "billed_bytes": null,
+    "processed_bytes": null,
+    "maximum_bytes_billed": "1",
+    "bytes_billed_limit_message": true
+  }
+}

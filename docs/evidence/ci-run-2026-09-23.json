@@ -1,0 +1,145 @@
+{
+  "observed_at_utc": "2026-09-23T03:56:20.529Z",
+  "authorization": "DEC-SEC-002",
+  "commit": "8e9649e4fda23196e51491fad05644cbb765d0ce",
+  "push_status": "SUCCESS",
+  "attempt": 1,
+  "conclusion": "success",
+  "createdAt": "2026-09-23T03:55:18Z",
+  "event": "push",
+  "headBranch": "codex/phase6-platform-proof",
+  "headSha": "8e9649e4fda23196e51491fad05644cbb765d0ce",
+  "jobs": [
+    {
+      "completedAt": "2026-09-23T03:55:31Z",
+      "conclusion": "success",
+      "databaseId": 107038260515,
+      "name": "validate",
+      "startedAt": "2026-09-23T03:55:20Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-23T03:55:22Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-23T03:55:21Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:23Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 2,
+          "startedAt": "2026-09-23T03:55:22Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:27Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "number": 3,
+          "startedAt": "2026-09-23T03:55:23Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:28Z",
+          "conclusion": "success",
+          "name": "Install locked dependencies without lifecycle scripts",
+          "number": 4,
+          "startedAt": "2026-09-23T03:55:27Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:29Z",
+          "conclusion": "success",
+          "name": "Unit and fixture tests",
+          "number": 5,
+          "startedAt": "2026-09-23T03:55:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:29Z",
+          "conclusion": "success",
+          "name": "Documentation structure",
+          "number": 6,
+          "startedAt": "2026-09-23T03:55:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:29Z",
+          "conclusion": "success",
+          "name": "Bounded local secret-pattern check",
+          "number": 7,
+          "startedAt": "2026-09-23T03:55:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:29Z",
+          "conclusion": "success",
+          "name": "Power BI source metadata",
+          "number": 8,
+          "startedAt": "2026-09-23T03:55:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:30Z",
+          "conclusion": "success",
+          "name": "Local pipeline plan",
+          "number": 9,
+          "startedAt": "2026-09-23T03:55:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:30Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+          "number": 17,
+          "startedAt": "2026-09-23T03:55:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:30Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 18,
+          "startedAt": "2026-09-23T03:55:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-23T03:55:30Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 19,
+          "startedAt": "2026-09-23T03:55:30Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/McQueen-Cloud-Advisory/astra-analytics-delivery-lab/actions/runs/35816243301/job/107038260515"
+    }
+  ],
+  "status": "completed",
+  "updatedAt": "2026-09-23T03:55:32Z",
+  "url": "https://github.com/McQueen-Cloud-Advisory/astra-analytics-delivery-lab/actions/runs/35816243301",
+  "workflowName": "Local validation",
+  "validation_log_excerpts": [
+    "validate\tDocumentation structure\t2026-09-23T03:55:29.7791497Z PASS: 72 Markdown files: local links, table structure, encoding, code fences",
+    "validate\tDocumentation structure\t2026-09-23T03:55:29.7793789Z PASS: Nine ordered gates and release step placement",
+    "validate\tDocumentation structure\t2026-09-23T03:55:29.7794597Z PASS: Twelve distinct portfolio detail records",
+    "validate\tDocumentation structure\t2026-09-23T03:55:29.7795557Z PASS: Comparison/detail consistency and disjoint 3/4/3/2 portfolio buckets",
+    "validate\tDocumentation structure\t2026-09-23T03:55:29.7796556Z PASS: Framework weight completeness and normalization",
+    "validate\tDocumentation structure\t2026-09-23T03:55:29.7797675Z PASS: Current state has an existing gate record",
+    "validate\tDocumentation structure\t2026-09-23T03:55:29.7798992Z Local structural validation passed. Human approvals and platform behavior require separate evidence.",
+    "validate\tBounded local secret-pattern check\t2026-09-23T03:55:29.8782850Z   \"scannedFiles\": 144,",
+    "validate\tPower BI source metadata\t2026-09-23T03:55:29.9342844Z PASS: 14 allowlisted source files, 3 visual bindings, Import/batch/manifest/freshness guards. No cache/settings/binary traversal; not a Desktop runtime test.",
+    "validate\tUnit and fixture tests\t2026-09-23T03:55:29.7127163Z ℹ tests 98",
+    "validate\tUnit and fixture tests\t2026-09-23T03:55:29.7127744Z ℹ suites 0",
+    "validate\tUnit and fixture tests\t2026-09-23T03:55:29.7128309Z ℹ pass 98",
+    "validate\tUnit and fixture tests\t2026-09-23T03:55:29.7128669Z ℹ fail 0",
+    "validate\tUnit and fixture tests\t2026-09-23T03:55:29.7129023Z ℹ cancelled 0",
+    "validate\tUnit and fixture tests\t2026-09-23T03:55:29.7129557Z ℹ skipped 0",
+    "validate\tUnit and fixture tests\t2026-09-23T03:55:29.7129779Z ℹ todo 0",
+    "validate\tUnit and fixture tests\t2026-09-23T03:55:29.7130023Z ℹ duration_ms 775.134755"
+  ],
+  "scope": "Only frozen commit8e9649e; later local 110-test composition changes are not in this run. No GCP workload or deployment."
+}

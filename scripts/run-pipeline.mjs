@@ -2,7 +2,7 @@
 import { readFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { readSourcePackage } from '../src/data/source-package.mjs';
+import { readPackageEnvelope, readSourcePackage } from '../src/data/source-package.mjs';
 import { TARGET, REQUIRED_TABLES } from '../src/pipeline/schemas.mjs';
 import { batchIdentity, hash, LIMITS, PipelineError, publicationSql, requireThat, safeFailure, validateReadiness } from '../src/pipeline/core.mjs';
 import { reserveAttempt, withLedger, writeJson } from '../src/pipeline/ledger.mjs';
@@ -11,18 +11,21 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 export function parseArguments(args) {
   const options = { mode: 'plan', input: join(root, 'fixtures/po/FIX-01'), readiness: join(root, '.lab/cloud-readiness.json'), stopBeforePublish: false };
   let explicitMode = false;
+  const valueFlags = new Set();
   for (let index = 0; index < args.length; index++) {
     const arg = args[index];
     if (['--plan', '--dry-run', '--execute'].includes(arg)) {
       requireThat(!explicitMode, 'INVALID_ARGUMENTS', 'Choose one mode'); options.mode = arg.slice(2); explicitMode = true;
     } else if (arg === '--stop-before-publish') {
       requireThat(!options.stopBeforePublish, 'INVALID_ARGUMENTS', 'Duplicate controlled-stop flag'); options.stopBeforePublish = true;
-    } else if (['--input', '--readiness'].includes(arg)) {
+    } else if (['--input', '--readiness', '--delta'].includes(arg)) {
+      requireThat(!valueFlags.has(arg), 'INVALID_ARGUMENTS', 'Duplicate value option'); valueFlags.add(arg);
       requireThat(args[index + 1] && !args[index + 1].startsWith('--'), 'INVALID_ARGUMENTS', arg);
       options[arg.slice(2)] = resolve(args[++index]);
-    } else throw new PipelineError('INVALID_ARGUMENTS', 'Only --plan, --dry-run, --execute, --input, --readiness and --stop-before-publish are supported');
+    } else throw new PipelineError('INVALID_ARGUMENTS', 'Only --plan, --dry-run, --execute, --input, --delta, --readiness and --stop-before-publish are supported');
   }
   requireThat(!(options.stopBeforePublish && options.mode === 'dry-run'), 'INVALID_ARGUMENTS', 'Controlled stop requires an execution or local plan');
+  requireThat(!(options.delta && (valueFlags.has('--input') || options.stopBeforePublish)), 'INVALID_ARGUMENTS', 'Delta mode cannot be combined with --input or --stop-before-publish');
   return options;
 }
 async function readPinnedFixture(source) {
@@ -34,7 +37,9 @@ async function readPinnedFixture(source) {
 }
 export async function main(args) {
   const options = parseArguments(args);
-  const source = await readSourcePackage(options.input), batchId = batchIdentity(source);
+  // The pinned resolved fixture provides the expected target identity only.
+  // Runtime delta composition must wait for actual retained-parent verification.
+  const source = await readSourcePackage(options.delta ? join(root, 'fixtures/po/FIX-02') : options.input), batchId = batchIdentity(source);
   const { oracle, oracleHash } = await readPinnedFixture(source);
   requireThat(!options.stopBeforePublish || source.manifest.fixture_or_profile === 'FIX-02', 'CONTROLLED_STOP_FIX02_ONLY');
   let retainedBatch;
@@ -43,12 +48,26 @@ export async function main(args) {
     const retained = await readPinnedFixture(retainedSource);
     retainedBatch = { source: retainedSource, oracle: retained.oracle, batchId: batchIdentity(retainedSource) };
   }
+  let deltaInput;
+  if (options.delta) {
+    const envelope = await readPackageEnvelope(options.delta);
+    const pinnedDelta = JSON.parse(await readFile(join(root, 'fixtures/po/FIX-02-delta/manifest.json'), 'utf8'));
+    requireThat(envelope.manifest.source_package_hash === pinnedDelta.source_package_hash, 'PINNED_DELTA_MISMATCH');
+    deltaInput = { envelope, pinnedParent: await readPackageEnvelope(join(root, 'fixtures/po/FIX-01')) };
+  }
   const transformSql = await readFile(join(root, 'sql/fix01-transform.sql'), 'utf8');
   const readSql = await readFile(join(root, 'sql/read-published-batch.sql'), 'utf8');
   const plan = { mode: options.mode, fixture: source.manifest.fixture_or_profile, source_package_hash: source.sourcePackageHash, oracle_sha256: oracleHash, batch_id: batchId, target: TARGET,
     tables: REQUIRED_TABLES.map(t => `${TARGET.projectId}.${t.datasetId}.${t.tableId}`), source_counts: source.physicalCounts,
     transform_sha256: hash(transformSql), publication_sha256: hash(publicationSql), bounds: LIMITS, controlled_stop_before_publication: options.stopBeforePublish,
     retained_batch_id: retainedBatch?.batchId, cloud_execution: 'Not Run', publication: 'Not Run', desktop_verification: 'Not Run' };
+  if (deltaInput) {
+    plan.input_mode = 'DELTA_WITH_RETAINED_CLOUD_HISTORY';
+    plan.delta_source_package_hash = deltaInput.envelope.manifest.source_package_hash;
+    plan.delta_source_counts = { lines: deltaInput.envelope.physicalLines.length, events: deltaInput.envelope.physicalEvents.length };
+    plan.parent_history_verification = 'Not Run';
+    plan.runtime_composition = 'Not Run';
+  }
   if (options.mode === 'plan') return plan;
   const readiness = validateReadiness(JSON.parse(await readFile(options.readiness, 'utf8')));
   const resourceManifest = JSON.parse(await readFile(join(root, '.lab/resource-manifest.json'), 'utf8'));
@@ -64,7 +83,7 @@ export async function main(args) {
       attempt.stage = 'SETTLING_PRIOR_JOBS'; await save();
       await settlePriorJobs(client, ledger.attempts.filter(a => a.id !== attempt.id), save);
       const result = await runCloudSlice({ client, source, oracle, batchId, transformSql, readSql, mode: options.mode, attempt, save, directory, resourceManifest,
-        stopBeforePublish: options.stopBeforePublish, retainedBatch });
+        stopBeforePublish: options.stopBeforePublish, retainedBatch, deltaInput });
       attempt.status = result.expected_controlled_stop ? 'CONTROLLED_STOP' : 'PASS'; attempt.completed_at_utc = new Date().toISOString(); attempt.result = result; await save();
       const evidence = { ...plan, ...result, cloud_execution: options.mode === 'execute' ? 'Pass' : 'Not Run', attempt_id: attempt.id, jobs: attempt.jobs, gate5_decision_ref: readiness.gate5_decision_ref };
       await writeJson(join(directory, `${attempt.id}-result.json`), evidence);

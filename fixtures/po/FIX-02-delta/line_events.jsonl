@@ -1,0 +1,2 @@
+{"event_id":"E10","revision":2,"line_id":"L08","event_type":"RECEIPT","event_at":"2026-09-19T11:00:00Z","source_recorded_at":"2026-09-21T12:15:00Z","is_void":false,"quantity":3,"promised_date":null,"reason_code":null}
+{"event_id":"E11","revision":1,"line_id":"L09","event_type":"RECEIPT","event_at":"2026-09-19T12:00:00Z","source_recorded_at":"2026-09-21T12:30:00Z","is_void":false,"quantity":2,"promised_date":null,"reason_code":null}

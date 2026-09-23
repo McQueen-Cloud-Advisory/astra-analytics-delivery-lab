@@ -1,0 +1,41 @@
+{
+  "started_at_utc": "2026-09-23T03:53:11.157Z",
+  "completed_at_utc": "2026-09-23T03:53:11.806Z",
+  "node_version": "v24.15.0",
+  "npm_version": "11.12.1",
+  "registry": "https://registry.npmjs.org",
+  "authorization": "DEC-SEC-002",
+  "exit_code": 0,
+  "mode": "REPORT_ONLY_LOCKFILE_IGNORE_SCRIPTS",
+  "hashes_before": {
+    "package_json": "15db9737c095c558933d816845551370d8ba59b0a77e8947ec734d34a8375ed1",
+    "package_lock": "070450e768767d22ec60dd22a439e0af4aab44c96494f492a65ae3c49454603d"
+  },
+  "hashes_after": {
+    "package_json": "15db9737c095c558933d816845551370d8ba59b0a77e8947ec734d34a8375ed1",
+    "package_lock": "070450e768767d22ec60dd22a439e0af4aab44c96494f492a65ae3c49454603d"
+  },
+  "files_unchanged": true,
+  "audit_report": {
+    "auditReportVersion": 2,
+    "vulnerabilities": {},
+    "metadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "dependencies": {
+        "prod": 48,
+        "dev": 0,
+        "optional": 0,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 47
+      }
+    }
+  }
+}

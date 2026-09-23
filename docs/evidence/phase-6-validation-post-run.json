@@ -1,0 +1,633 @@
+{
+  "observed_at_utc": "2026-09-23T23:10:38.401Z",
+  "project_id": "astra-po-lab-20260921",
+  "quota_date": "2026-09-23",
+  "billing_enabled": true,
+  "budget_usd": 10,
+  "budget_projects": [
+    "projects/329955978985"
+  ],
+  "datasets": [
+    "po_serving",
+    "po_work"
+  ],
+  "inventory": [
+    {
+      "dataset": "po_serving",
+      "table": "batch_manifest",
+      "location": "us-east4",
+      "rows": 2,
+      "bytes": 604,
+      "expires_at_utc": "2026-10-06T02:26:29.341Z"
+    },
+    {
+      "dataset": "po_serving",
+      "table": "event_evidence",
+      "location": "us-east4",
+      "rows": 22,
+      "bytes": 5308,
+      "expires_at_utc": "2026-10-06T02:26:29.341Z"
+    },
+    {
+      "dataset": "po_serving",
+      "table": "po_line_snapshot",
+      "location": "us-east4",
+      "rows": 20,
+      "bytes": 6986,
+      "expires_at_utc": "2026-10-06T02:26:29.341Z"
+    },
+    {
+      "dataset": "po_work",
+      "table": "raw_event_versions",
+      "location": "us-east4",
+      "rows": 118,
+      "bytes": 36155,
+      "expires_at_utc": "2026-09-29T02:26:29.341Z"
+    },
+    {
+      "dataset": "po_work",
+      "table": "raw_lines",
+      "location": "us-east4",
+      "rows": 110,
+      "bytes": 36971,
+      "expires_at_utc": "2026-09-29T02:26:29.341Z"
+    }
+  ],
+  "total_logical_bytes": 86024,
+  "jobs": [
+    {
+      "job_id": "po_val_limit_c9f2cbb3a6e4ec1d69ac_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:08:00.308Z",
+      "state": "DONE",
+      "error_reason": "bytesBilledLimitExceeded",
+      "query": true,
+      "billed_bytes": null
+    },
+    {
+      "job_id": "po_val_baseline_after_42fbd6f669e3b114d200_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:59.689Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_val_fix_03_d_replay_3204a74930bab64ac087_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:58.749Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_fix_02_early_knowledge_cef9556760a8879293d4_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:57.861Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_fix_03_h_8cb29ffb5be86f074337_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:56.926Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_fix_04_future_after_47660f5bc34318c65821_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:55.912Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_fix_04_future_before_dc6d649449b74e2d8ef0_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:54.978Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_fix_04_promise_void_06c23b406e8c38748d20_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:53.933Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_fix_04_receipt_void_865d4b1f2bd25258c249_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:52.823Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_fix_04_midnight_at_1f8402478f43b9e31f73_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:51.712Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_fix_04_midnight_before_3b61923195f1accae861_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:50.571Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_fix_03_d_3204a74930bab64ac087_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:49.526Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_raw_reconcile_75a52b5878f528921fc3_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:48.831Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_val_load_raw_event_versions_ff1d7c28fd9a1b81eaf708ee018d9d0720606514c67490dd",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:44.312Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": false,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "po_val_load_raw_lines_4f791c11f9fdc0794bc10f50f885ee8fea20dc0fc096518b",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:42.365Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": false,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "po_val_baseline_before_42fbd6f669e3b114d200_450844cd619c42deacdaaddf7e4f46d3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:07:41.038Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_read_retained_d2076920fb226875340c87881dc043ed_45589f992a71_81ae365a061942e4b2b5c79c09c28b07",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:00:46.861Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_read_before_d2076920fb226875340c87881dc043ed_45589f992a71_81ae365a061942e4b2b5c79c09c28b07",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:00:46.070Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_read_parent_raw_d2076920fb226875340c87881dc043ed_e1f435d92055_81ae365a061942e4b2b5c79c09c28b07",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:00:45.286Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_read_parent_d2076920fb226875340c87881dc043ed_45589f992a71_81ae365a061942e4b2b5c79c09c28b07",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T23:00:43.757Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_read_retained_d2076920fb226875340c87881dc043ed_45589f992a71_0c3890eac1454d668ccbcb0a3a494091",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:49:36.321Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_read_before_d2076920fb226875340c87881dc043ed_45589f992a71_0c3890eac1454d668ccbcb0a3a494091",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:49:35.544Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_read_retained_d2076920fb226875340c87881dc043ed_45589f992a71_239c9a6163484258bc62ccef50179c9c",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:48:30.718Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_read_after_d2076920fb226875340c87881dc043ed_45589f992a71_239c9a6163484258bc62ccef50179c9c",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:48:30.019Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_publish_d2076920fb226875340c87881dc043ed_fec0e1cd22f1",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:48:24.261Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_transform_d2076920fb226875340c87881dc043ed_22152ebc8fd8_239c9a6163484258bc62ccef50179c9c",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:48:22.915Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_read_before_d2076920fb226875340c87881dc043ed_45589f992a71_239c9a6163484258bc62ccef50179c9c",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:48:21.503Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_read_retained_d2076920fb226875340c87881dc043ed_45589f992a71_153c9b8cf6224b80be2e6f9041bcce85",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:45:03.494Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_transform_d2076920fb226875340c87881dc043ed_22152ebc8fd8_153c9b8cf6224b80be2e6f9041bcce85",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:45:02.331Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_load_raw_event_versions_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:45:00.341Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": false,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "po_load_raw_lines_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:44:57.072Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": false,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "po_read_before_d2076920fb226875340c87881dc043ed_45589f992a71_153c9b8cf6224b80be2e6f9041bcce85",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:44:55.609Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "job_1a192000_2675_45be_9c55_723e805d2208",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:29:49.034Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_a74a2fdb_26e4_42e4_b04b_3058ff63b5fe",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:29:48.081Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_06f280a8_4911_4629_9004_16ecdb378955",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:29:46.896Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_97996229_d91a_4fd1_8f67_972644223831",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:29:45.892Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_0af79b92_2337_41e4_9a50_552ba3eac320",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:29:44.384Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_d4ec06eb_516e_4133_9973_892bc8b52000",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:29:43.101Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_786a3b98_2c8b_47c3_9683_e3ae8df432cb",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:29:41.335Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_e00b65c1_b158_48a1_afbc_fb455a43d0f1",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-23T02:29:39.465Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_035d794e_0a77_4496_857b_7543cf8b05b2",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:22:11.447Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_e0b1634f_1d66_40d0_b130_6438455bf9fe",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:22:10.406Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_61ce9f84_b4d7_4467_a58e_4b1be495c099",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:22:09.223Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_56d95a88_8dad_41af_a347_cc13c86d7155",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:22:07.957Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_c7b951b1_627c_4141_8b7e_3d950dcb8d5b",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:21:37.740Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 10485760
+    },
+    {
+      "job_id": "job_0bf3c3a3_eb53_49ab_b844_c83796a3cb72",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:21:36.482Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_86a51d13_ad21_49e3_a393_46482acbb0e0",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:21:35.315Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_a5aad090_83e5_4b6a_87e8_7f02e37efa1d",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:21:34.214Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "job_e9fe5aae_cce8_4512_af95_70cd62ab06be",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:21:24.584Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 10485760
+    },
+    {
+      "job_id": "job_9cde3a4f_188f_43a1_ab66_a9f9cd98adc3",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T04:21:21.669Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "po_read_after_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T02:36:18.786Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 31457280
+    },
+    {
+      "job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T02:36:12.613Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "po_transform_5f624cd96d7420ac70f1d04569c97efa_22152ebc8fd8_937a846714d24ecaa27a950c7dd8d4bd",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T02:36:10.609Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 20971520
+    },
+    {
+      "job_id": "po_load_raw_event_versions_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T02:36:08.285Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": false,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "po_load_raw_lines_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T02:36:06.072Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": false,
+      "billed_bytes": 0
+    },
+    {
+      "job_id": "po_read_before_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+      "location": "us-east4",
+      "parent_job_id": null,
+      "created_at_utc": "2026-09-22T02:36:04.478Z",
+      "state": "DONE",
+      "error_reason": null,
+      "query": true,
+      "billed_bytes": 0
+    }
+  ],
+  "known_project_billed_bytes_today": 408944640,
+  "cumulative_query_billed_bytes": 775946240,
+  "gross_query_estimate_usd": 0.004410743713378906,
+  "jobs_with_unreported_billed_bytes": [
+    {
+      "job_id": "po_val_limit_c9f2cbb3a6e4ec1d69ac_450844cd619c42deacdaaddf7e4f46d3",
+      "error_reason": "bytesBilledLimitExceeded"
+    }
+  ],
+  "query_sum_limitation": "Sum of explicitly reported job billed-byte fields only. The bytes-limit rejected probe has no billing statistic; no-charge treatment is separately documented from the observed failure and provider policy, not an observed invoice.",
+  "actual_invoice_usd": null,
+  "raw_expiry_utc": "2026-09-29T02:26:29.341Z",
+  "absolute_expiry_utc": "2026-10-06T02:26:29.341Z",
+  "workload_submitted": false
+}

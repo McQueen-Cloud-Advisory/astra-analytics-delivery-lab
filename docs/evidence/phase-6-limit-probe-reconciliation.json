@@ -1,0 +1,31 @@
+{
+  "observed_at_utc": "2026-09-23T23:14:17.636Z",
+  "mode": "EXISTING_JOB_METADATA_RECONCILIATION",
+  "attempt_id": "450844cd619c42deacdaaddf7e4f46d3",
+  "original_attempt_status": "FAIL",
+  "original_failure": {
+    "code": "UNEXPECTED_LIMIT_CONTROL_RESULT"
+  },
+  "workload_submitted": false,
+  "reserved_bytes_unchanged": 2147483648,
+  "classifier_sha256": "40d9418e658a437af1056e450f003b45bac117e52b5dc2fc5a6236eb4dfcdb2b",
+  "classification": {
+    "status": "PASS",
+    "job_id": "po_val_limit_c9f2cbb3a6e4ec1d69ac_450844cd619c42deacdaaddf7e4f46d3",
+    "job_status": "DONE",
+    "maximum_bytes_billed": 1,
+    "failure_reason": "bytesBilledLimitExceeded",
+    "expected_rejection_verified": true,
+    "billed_bytes": null,
+    "processed_bytes": null,
+    "billing_observation": "NOT_REPORTED",
+    "observation": "Known job metadata verifies the exact maximum-bytes rejection",
+    "charge_assessment": {
+      "basis": "DOCUMENTED_SERVICE_POLICY_INFERENCE",
+      "expected_query_charge": "No query charge",
+      "source_url": "https://docs.cloud.google.com/bigquery/docs/best-practices-costs#restrict_the_number_of_bytes_billed_per_query",
+      "invoice_verified": false
+    }
+  },
+  "limitations": "No cloud suite rerun; historical failure and all reservations retained. Missing billing statistics remain null; policy inference is not an invoice."
+}

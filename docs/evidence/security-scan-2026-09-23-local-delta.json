@@ -1,0 +1,11 @@
+{
+  "observed_at_utc": "2026-09-23T03:11:28.740Z",
+  "scope": "Git-tracked and untracked nonignored working-tree source text; no Git history or index-content scan",
+  "listedFiles": 163,
+  "scannedFiles": 163,
+  "skippedPrivateFiles": 0,
+  "skippedNonSourceFiles": 0,
+  "findings": [],
+  "errors": [],
+  "limitations": "Bounded known patterns only; a clean result is not proof that credentials are absent. Private contents and unsupported file types are not scanned."
+}

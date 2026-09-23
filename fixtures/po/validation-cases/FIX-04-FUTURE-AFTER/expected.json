@@ -1,0 +1,331 @@
+{
+  "fixture_id": "FIX-01",
+  "oracle_version": "FIX-v1.0",
+  "business_as_of": "2026-09-21T13:00:00Z",
+  "knowledge_cutoff": "2026-09-21T13:00:00Z",
+  "business_date": "2026-09-21",
+  "keys": {
+    "line_ids": [
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10"
+    ],
+    "event_versions": [
+      "E01/1",
+      "E02/1",
+      "E03/1",
+      "E04/1",
+      "E05/1",
+      "E06/1",
+      "E07/1",
+      "E08/1",
+      "E09/1",
+      "E10/1",
+      "E12/1"
+    ]
+  },
+  "counts": {
+    "physical_lines": 10,
+    "physical_events": 11,
+    "canonical_lines": 10,
+    "canonical_event_versions": 11,
+    "winning_events": 11
+  },
+  "event_states": [
+    {
+      "event_id": "E01",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E02",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E03",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E04",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E05",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E06",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E07",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E08",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E09",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E10",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    },
+    {
+      "event_id": "E12",
+      "revision": 1,
+      "is_winning_revision": true,
+      "contributes_to_state": true,
+      "is_superseded": false,
+      "is_future_effective": false
+    }
+  ],
+  "line_states": [
+    {
+      "line_id": "L01",
+      "current_promised_date": "2026-09-20",
+      "received_qty": 5,
+      "cancelled_qty": 0,
+      "remaining_qty": 5,
+      "is_open": true,
+      "is_overdue": true,
+      "days_overdue": 1,
+      "closure_status": "Open",
+      "promise_slip_days": 0,
+      "remaining_value_cents": 5000,
+      "overdue_value_cents": 5000
+    },
+    {
+      "line_id": "L02",
+      "current_promised_date": "2026-09-21",
+      "received_qty": 0,
+      "cancelled_qty": 0,
+      "remaining_qty": 8,
+      "is_open": true,
+      "is_overdue": false,
+      "days_overdue": 0,
+      "closure_status": "Open",
+      "promise_slip_days": 0,
+      "remaining_value_cents": 4000,
+      "overdue_value_cents": 0
+    },
+    {
+      "line_id": "L03",
+      "current_promised_date": "2026-09-18",
+      "received_qty": 12,
+      "cancelled_qty": 0,
+      "remaining_qty": 0,
+      "is_open": false,
+      "is_overdue": false,
+      "days_overdue": null,
+      "closure_status": "Received",
+      "promise_slip_days": 0,
+      "remaining_value_cents": 0,
+      "overdue_value_cents": 0
+    },
+    {
+      "line_id": "L04",
+      "current_promised_date": "2026-09-19",
+      "received_qty": 3,
+      "cancelled_qty": 7,
+      "remaining_qty": 0,
+      "is_open": false,
+      "is_overdue": false,
+      "days_overdue": null,
+      "closure_status": "Closed mixed",
+      "promise_slip_days": 0,
+      "remaining_value_cents": 0,
+      "overdue_value_cents": 0
+    },
+    {
+      "line_id": "L05",
+      "current_promised_date": "2026-09-19",
+      "received_qty": 0,
+      "cancelled_qty": 5,
+      "remaining_qty": 0,
+      "is_open": false,
+      "is_overdue": false,
+      "days_overdue": null,
+      "closure_status": "Cancelled",
+      "promise_slip_days": 0,
+      "remaining_value_cents": 0,
+      "overdue_value_cents": 0
+    },
+    {
+      "line_id": "L06",
+      "current_promised_date": "2026-09-23",
+      "received_qty": 5,
+      "cancelled_qty": 0,
+      "remaining_qty": 15,
+      "is_open": true,
+      "is_overdue": false,
+      "days_overdue": 0,
+      "closure_status": "Open",
+      "promise_slip_days": 5,
+      "remaining_value_cents": 3000,
+      "overdue_value_cents": 0
+    },
+    {
+      "line_id": "L07",
+      "current_promised_date": "2026-09-19",
+      "received_qty": 2,
+      "cancelled_qty": 0,
+      "remaining_qty": 4,
+      "is_open": true,
+      "is_overdue": true,
+      "days_overdue": 2,
+      "closure_status": "Open",
+      "promise_slip_days": 2,
+      "remaining_value_cents": 2800,
+      "overdue_value_cents": 2800
+    },
+    {
+      "line_id": "L08",
+      "current_promised_date": "2026-09-20",
+      "received_qty": 5,
+      "cancelled_qty": 0,
+      "remaining_qty": 4,
+      "is_open": true,
+      "is_overdue": true,
+      "days_overdue": 1,
+      "closure_status": "Open",
+      "promise_slip_days": 0,
+      "remaining_value_cents": 2400,
+      "overdue_value_cents": 2400
+    },
+    {
+      "line_id": "L09",
+      "current_promised_date": "2026-09-20",
+      "received_qty": 0,
+      "cancelled_qty": 0,
+      "remaining_qty": 4,
+      "is_open": true,
+      "is_overdue": true,
+      "days_overdue": 1,
+      "closure_status": "Open",
+      "promise_slip_days": 0,
+      "remaining_value_cents": 3200,
+      "overdue_value_cents": 3200
+    },
+    {
+      "line_id": "L10",
+      "current_promised_date": "2026-09-22",
+      "received_qty": 0,
+      "cancelled_qty": 0,
+      "remaining_qty": 7,
+      "is_open": true,
+      "is_overdue": false,
+      "days_overdue": 0,
+      "closure_status": "Open",
+      "promise_slip_days": 0,
+      "remaining_value_cents": 6300,
+      "overdue_value_cents": 0
+    }
+  ],
+  "totals": {
+    "ordered_qty": 91,
+    "received_qty": 32,
+    "cancelled_qty": 12,
+    "remaining_qty": 47,
+    "open_lines": 7,
+    "overdue_lines": 4,
+    "overdue_units": 17,
+    "overdue_value_cents": 13400,
+    "overdue_share_numerator": 4,
+    "overdue_share_denominator": 7,
+    "max_overdue_days": 2,
+    "postponed_open_lines": 2
+  },
+  "scopes": {
+    "S1": {
+      "ordered_qty": 23,
+      "received_qty": 5,
+      "cancelled_qty": 5,
+      "remaining_qty": 13,
+      "open_lines": 2,
+      "overdue_lines": 1,
+      "overdue_units": 5,
+      "overdue_value_cents": 5000,
+      "overdue_share_numerator": 1,
+      "overdue_share_denominator": 2,
+      "max_overdue_days": 1,
+      "postponed_open_lines": 0
+    },
+    "S2": {
+      "ordered_qty": 49,
+      "received_qty": 20,
+      "cancelled_qty": 7,
+      "remaining_qty": 22,
+      "open_lines": 2,
+      "overdue_lines": 0,
+      "overdue_units": 0,
+      "overdue_value_cents": 0,
+      "overdue_share_numerator": 0,
+      "overdue_share_denominator": 2,
+      "max_overdue_days": null,
+      "postponed_open_lines": 1
+    },
+    "S3": {
+      "ordered_qty": 19,
+      "received_qty": 7,
+      "cancelled_qty": 0,
+      "remaining_qty": 12,
+      "open_lines": 3,
+      "overdue_lines": 3,
+      "overdue_units": 12,
+      "overdue_value_cents": 8400,
+      "overdue_share_numerator": 3,
+      "overdue_share_denominator": 3,
+      "max_overdue_days": 2,
+      "postponed_open_lines": 1
+    }
+  }
+}

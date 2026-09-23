@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "source_contract": "SRC-v1.0",
+  "fixture_or_profile": "FIX-02",
+  "generator_version": "GEN-01-v1.0",
+  "seed": null,
+  "provenance_class": "SYNTHETIC",
+  "business_as_of": "2026-09-21T12:00:00Z",
+  "knowledge_cutoff": "2026-09-21T13:00:00Z",
+  "files": {
+    "po_lines.jsonl": {
+      "record_count": 0,
+      "byte_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "line_events.jsonl": {
+      "record_count": 2,
+      "byte_count": 436,
+      "sha256": "78c3c3073742899b515a2afb3105a6d42ef9413a43df338f04e9da607fc23436"
+    }
+  },
+  "source_package_hash": "d64d01eca11bde0e5df7a50b0797fccaff9bcbf12cc4dde27370928da52ea6ec"
+}

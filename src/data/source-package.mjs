@@ -172,11 +172,19 @@ export function selectWinningEvents(events, manifest, lines) {
   return [...winners.values()].sort((a, b) => ordinal(a.event_at, b.event_at) || ordinal(a.event_id, b.event_id));
 }
 
-export function validateSourcePackage({ manifest, linesText, eventsText }) {
+// An envelope check is not complete-history admission. A delta may pass here
+// while still requiring its retained lines/revisions before validateSourcePackage.
+export function validatePackageEnvelope({ manifest, linesText, eventsText }) {
   if (typeof manifest === 'string') manifest = parseStrictJson(manifest, 'manifest.json');
   validateManifest(manifest, linesText, eventsText);
   const physicalLines = parseRows(linesText, FILES[0], LINE_FIELDS);
   const physicalEvents = parseRows(eventsText, FILES[1], EVENT_FIELDS);
+  return { manifest, linesText, eventsText, physicalLines, physicalEvents,
+    validationScope: 'PACKAGE_INTEGRITY_AND_RECORD_STRUCTURE_ONLY', completeHistoryAdmission: 'Not Run' };
+}
+
+export function validateSourcePackage(input) {
+  const { manifest, physicalLines, physicalEvents } = validatePackageEnvelope(input);
   const lineMap = new Map();
   const businessKeys = new Map();
   for (const { record: line, recordLocator: at, payloadHash } of physicalLines) {
@@ -239,7 +247,7 @@ export function validateSourcePackage({ manifest, linesText, eventsText }) {
   };
 }
 
-export async function readSourcePackage(directory) {
+async function readPackageTexts(directory) {
   const contents = await Promise.all([...FILES, 'manifest.json'].map(async name => {
     const buffer = await readFile(join(directory, name));
     if (buffer.byteLength > MAX_SOURCE_BYTES) fail('SOURCE_LIMIT', name, 'File exceeds source byte limit');
@@ -247,5 +255,13 @@ export async function readSourcePackage(directory) {
     try { return new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(buffer); }
     catch { fail('INVALID_JSON', name, 'Invalid UTF-8'); }
   }));
-  return validateSourcePackage({ linesText: contents[0], eventsText: contents[1], manifest: contents[2] });
+  return { linesText: contents[0], eventsText: contents[1], manifest: contents[2] };
+}
+
+export async function readPackageEnvelope(directory) {
+  return validatePackageEnvelope(await readPackageTexts(directory));
+}
+
+export async function readSourcePackage(directory) {
+  return validateSourcePackage(await readPackageTexts(directory));
 }
