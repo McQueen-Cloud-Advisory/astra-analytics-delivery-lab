@@ -1,0 +1,673 @@
+{
+  "recorded_at_utc": "2026-09-22T02:39:32.345Z",
+  "claim_type": "Observed lab result",
+  "scope": "FIX-01 ingestion/transformation/publication; Desktop not run",
+  "result": {
+    "mode": "execute",
+    "fixture": "FIX-01",
+    "source_package_hash": "d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f",
+    "batch_id": "fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc",
+    "target": {
+      "projectId": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "workDataset": "po_work",
+      "servingDataset": "po_serving",
+      "serviceAccount": "po-pipeline@astra-po-lab-20260921.iam.gserviceaccount.com"
+    },
+    "tables": [
+      "astra-po-lab-20260921.po_work.raw_lines",
+      "astra-po-lab-20260921.po_work.raw_event_versions",
+      "astra-po-lab-20260921.po_serving.po_line_snapshot",
+      "astra-po-lab-20260921.po_serving.event_evidence",
+      "astra-po-lab-20260921.po_serving.batch_manifest"
+    ],
+    "source_counts": {
+      "lines": 10,
+      "events": 10
+    },
+    "transform_sha256": "22152ebc8fd883f5185ee31305a5a7339250611957b6e8dcb441470715b104bb",
+    "publication_sha256": "fec0e1cd22f119c961a3d5a0b877fc8430c22fe9922811ddd5515892b534a706",
+    "bounds": {
+      "queryBytes": 1073741824,
+      "attemptBytes": 2147483648,
+      "dailyBytes": 10737418240,
+      "attempts": 3
+    },
+    "cloud_execution": "Pass",
+    "desktop_verification": "Not Run",
+    "outcome": "PUBLISHED_AND_RECONCILED",
+    "line_count": 10,
+    "event_count": 10,
+    "billed_bytes": 52428800,
+    "validation": "PASS",
+    "attempt_id": "937a846714d24ecaa27a950c7dd8d4bd",
+    "jobs": [
+      {
+        "stage": "read_estimate",
+        "dry_run": true,
+        "estimated_bytes": 0,
+        "maximum_bytes_billed": 1073741824
+      },
+      {
+        "stage": "transform_estimate",
+        "dry_run": true,
+        "estimated_bytes": 0,
+        "maximum_bytes_billed": 1073741824
+      },
+      {
+        "stage": "publish_estimate",
+        "dry_run": true,
+        "estimated_bytes": 0,
+        "maximum_bytes_billed": 536870912
+      },
+      {
+        "stage": "read_before",
+        "job_id": "po_read_before_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+        "maximum_bytes_billed": 1073741824,
+        "status": "DONE",
+        "billed_bytes": 0
+      },
+      {
+        "stage": "load_raw_lines",
+        "job_id": "po_load_raw_lines_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+        "status": "DONE",
+        "output_rows": 10
+      },
+      {
+        "stage": "load_raw_event_versions",
+        "job_id": "po_load_raw_event_versions_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+        "status": "DONE",
+        "output_rows": 10
+      },
+      {
+        "stage": "populated_estimate",
+        "dry_run": true,
+        "estimated_bytes": 2855,
+        "maximum_bytes_billed": 1073741824
+      },
+      {
+        "stage": "transform",
+        "job_id": "po_transform_5f624cd96d7420ac70f1d04569c97efa_22152ebc8fd8_937a846714d24ecaa27a950c7dd8d4bd",
+        "maximum_bytes_billed": 1073741824,
+        "status": "DONE",
+        "billed_bytes": 20971520
+      },
+      {
+        "stage": "publish_final_estimate",
+        "dry_run": true,
+        "estimated_bytes": 0,
+        "maximum_bytes_billed": 531628032
+      },
+      {
+        "stage": "publish",
+        "job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+        "maximum_bytes_billed": 531628032,
+        "status": "DONE",
+        "billed_bytes": 0
+      },
+      {
+        "stage": "read_after",
+        "job_id": "po_read_after_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+        "maximum_bytes_billed": 1073741824,
+        "status": "DONE",
+        "billed_bytes": 31457280
+      }
+    ],
+    "gate5_decision_ref": "docs/gates/gate-5-data-design.md#dec-g5-001--actual-approval-and-subsequent-evidence"
+  },
+  "attempts": [
+    {
+      "id": "32d8683c404649c9bb781059b3fe63bd",
+      "quota_date": "2026-09-21",
+      "started_at_utc": "2026-09-22T02:29:07.848Z",
+      "batch_id": "fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc",
+      "mode": "execute",
+      "reserved_bytes": 2147483648,
+      "status": "ABORTED_PROCESS_EXIT",
+      "jobs": [],
+      "completed_at_utc": "2026-09-22T02:35:29.782Z",
+      "failure": {
+        "code": "PROCESS_EXIT_1_NO_OUTPUT",
+        "cause": "Unknown; ordinary error handler did not complete",
+        "known_cloud_jobs": 0,
+        "investigation": "investigation-jobs.json",
+        "reservation_retained": true
+      }
+    },
+    {
+      "id": "937a846714d24ecaa27a950c7dd8d4bd",
+      "quota_date": "2026-09-21",
+      "started_at_utc": "2026-09-22T02:35:59.898Z",
+      "batch_id": "fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc",
+      "mode": "execute",
+      "reserved_bytes": 2147483648,
+      "status": "PASS",
+      "jobs": [
+        {
+          "stage": "read_estimate",
+          "dry_run": true,
+          "estimated_bytes": 0,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "transform_estimate",
+          "dry_run": true,
+          "estimated_bytes": 0,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "publish_estimate",
+          "dry_run": true,
+          "estimated_bytes": 0,
+          "maximum_bytes_billed": 536870912
+        },
+        {
+          "stage": "read_before",
+          "job_id": "po_read_before_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 0
+        },
+        {
+          "stage": "load_raw_lines",
+          "job_id": "po_load_raw_lines_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+          "status": "DONE",
+          "output_rows": 10
+        },
+        {
+          "stage": "load_raw_event_versions",
+          "job_id": "po_load_raw_event_versions_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+          "status": "DONE",
+          "output_rows": 10
+        },
+        {
+          "stage": "populated_estimate",
+          "dry_run": true,
+          "estimated_bytes": 2855,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "transform",
+          "job_id": "po_transform_5f624cd96d7420ac70f1d04569c97efa_22152ebc8fd8_937a846714d24ecaa27a950c7dd8d4bd",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 20971520
+        },
+        {
+          "stage": "publish_final_estimate",
+          "dry_run": true,
+          "estimated_bytes": 0,
+          "maximum_bytes_billed": 531628032
+        },
+        {
+          "stage": "publish",
+          "job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+          "maximum_bytes_billed": 531628032,
+          "status": "DONE",
+          "billed_bytes": 0
+        },
+        {
+          "stage": "read_after",
+          "job_id": "po_read_after_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 31457280
+        }
+      ],
+      "stage": "DRY_RUN_COMPLETE:publish_final_estimate",
+      "billed_bytes": 52428800,
+      "validation": "PASS",
+      "completed_at_utc": "2026-09-22T02:36:20.527Z",
+      "result": {
+        "outcome": "PUBLISHED_AND_RECONCILED",
+        "batch_id": "fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc",
+        "line_count": 10,
+        "event_count": 10,
+        "billed_bytes": 52428800,
+        "validation": "PASS",
+        "desktop_verification": "Not Run"
+      }
+    }
+  ],
+  "first_attempt_investigation": {
+    "observed_at_utc": "2026-09-22T02:34:18.083Z",
+    "jobs": []
+  },
+  "resources": {
+    "version": "1.0",
+    "approval": "DEC-G5-001",
+    "projectId": "astra-po-lab-20260921",
+    "projectNumber": "329955978985",
+    "location": "us-east4",
+    "serviceAccountEmail": "po-pipeline@astra-po-lab-20260921.iam.gserviceaccount.com",
+    "owner": "Human Manager",
+    "purpose": "OPP-02 bounded synthetic first-slice proof",
+    "firstResourceAt": "2026-09-22T02:26:29.341Z",
+    "absoluteExpiresAt": "2026-10-06T02:26:29.341Z",
+    "resources": [
+      {
+        "kind": "dataset",
+        "datasetId": "po_work",
+        "cleanupDueAt": "2026-10-06T02:26:29.341Z",
+        "status": "verified",
+        "observedAt": "2026-09-22T02:26:29.341Z",
+        "creationTime": "1790043990370"
+      },
+      {
+        "kind": "dataset",
+        "datasetId": "po_serving",
+        "cleanupDueAt": "2026-10-06T02:26:29.341Z",
+        "status": "verified",
+        "observedAt": "2026-09-22T02:26:29.341Z",
+        "creationTime": "1790043991241"
+      },
+      {
+        "kind": "table",
+        "datasetId": "po_work",
+        "tableId": "raw_lines",
+        "expiresAt": "2026-09-29T02:26:29.341Z",
+        "status": "verified",
+        "observedAt": "2026-09-22T02:26:29.341Z",
+        "creationTime": "1790043991919"
+      },
+      {
+        "kind": "table",
+        "datasetId": "po_work",
+        "tableId": "raw_event_versions",
+        "expiresAt": "2026-09-29T02:26:29.341Z",
+        "status": "verified",
+        "observedAt": "2026-09-22T02:26:29.341Z",
+        "creationTime": "1790043992453"
+      },
+      {
+        "kind": "table",
+        "datasetId": "po_serving",
+        "tableId": "po_line_snapshot",
+        "expiresAt": "2026-10-06T02:26:29.341Z",
+        "status": "verified",
+        "observedAt": "2026-09-22T02:26:29.341Z",
+        "creationTime": "1790043992907"
+      },
+      {
+        "kind": "table",
+        "datasetId": "po_serving",
+        "tableId": "event_evidence",
+        "expiresAt": "2026-10-06T02:26:29.341Z",
+        "status": "verified",
+        "observedAt": "2026-09-22T02:26:29.341Z",
+        "creationTime": "1790043993491"
+      },
+      {
+        "kind": "table",
+        "datasetId": "po_serving",
+        "tableId": "batch_manifest",
+        "expiresAt": "2026-10-06T02:26:29.341Z",
+        "status": "verified",
+        "observedAt": "2026-09-22T02:26:29.341Z",
+        "creationTime": "1790043994014"
+      }
+    ]
+  },
+  "source_hashes": {
+    "src/cloud/auth.mjs": "ab311d41d1d8a2bb5599eb16f418a23b640b4c612aa29aedaca645aa6a2f1ca3",
+    "src/pipeline/bigquery.mjs": "d22dc8fd03cc113c65330f4578e6d343d49bc6711aace0c0ad8f66a435909b76",
+    "src/pipeline/core.mjs": "3a1ab71cd76c9f233d7d94a7ea005410b4b02523d690f1e40092b4e31cbbe10e",
+    "src/pipeline/ledger.mjs": "b50b4f449f7c2bb4d8f61d84a13de91533a5c1c02a2e4e790da75b4922bc5986",
+    "src/pipeline/schemas.mjs": "fe7f00af15eddbe9a34ceafb07024173a25d7be0011cba0a185d4983a847a9c0",
+    "scripts/run-pipeline.mjs": "e429020c5ff93c7367db3069da99be60e257a6e13066c4fc7c575a04303e8066",
+    "scripts/provision-lab.mjs": "df619d5e7142502db0a66dffed40c021922dd2699c8afad0303ecf7ddf4a390f",
+    "sql/fix01-transform.sql": "22152ebc8fd883f5185ee31305a5a7339250611957b6e8dcb441470715b104bb",
+    "sql/read-published-batch.sql": "45589f992a71fb296b3c8a2102314a77311c3c3b1ca3510ec0210973a092d4fa",
+    "package-lock.json": "070450e768767d22ec60dd22a439e0af4aab44c96494f492a65ae3c49454603d",
+    "powerbi/opp02-proof/opp02-proof.SemanticModel/definition/expressions.tmdl": "1f6d3152f5fc4586dffb604a86b31538c94fa45a9d8b2e2e16f12f73d45c1931"
+  },
+  "cost": {
+    "observed_query_billed_bytes": 52428800,
+    "gross_query_estimate_usd": 0.0002980232238769531,
+    "actual_invoice_usd": null,
+    "storage_cost_usd": null
+  },
+  "limitations": [
+    "Prior HTTP403/token exposure retained in SEC-001. Scoped result read succeeds after authorized revocation and reauthentication.",
+    "One post-login child-job listing with setup/allUsers returned HTTP400; corrected to original scoped identity without allUsers. No new query submitted.",
+    "Actual invoice and Desktop execution remain unverified."
+  ],
+  "post_run_metadata": {
+    "observed_at_utc": "2026-09-22T02:48:18.909Z",
+    "named_dataset_ids": [
+      "po_serving",
+      "po_work"
+    ],
+    "inventory": [
+      {
+        "dataset": "po_serving",
+        "table": "batch_manifest",
+        "location": "us-east4",
+        "rows": "1",
+        "logical_bytes": "302",
+        "creation_time_ms": "1790043994014",
+        "expiry_time_ms": "1791253589341"
+      },
+      {
+        "dataset": "po_serving",
+        "table": "event_evidence",
+        "location": "us-east4",
+        "rows": "10",
+        "logical_bytes": "2415",
+        "creation_time_ms": "1790043993491",
+        "expiry_time_ms": "1791253589341"
+      },
+      {
+        "dataset": "po_serving",
+        "table": "po_line_snapshot",
+        "location": "us-east4",
+        "rows": "10",
+        "logical_bytes": "3493",
+        "creation_time_ms": "1790043992907",
+        "expiry_time_ms": "1791253589341"
+      },
+      {
+        "dataset": "po_work",
+        "table": "raw_event_versions",
+        "location": "us-east4",
+        "rows": "10",
+        "logical_bytes": "2876",
+        "creation_time_ms": "1790043992453",
+        "expiry_time_ms": "1790648789341"
+      },
+      {
+        "dataset": "po_work",
+        "table": "raw_lines",
+        "location": "us-east4",
+        "rows": "10",
+        "logical_bytes": "3171",
+        "creation_time_ms": "1790043991919",
+        "expiry_time_ms": "1790648789341"
+      }
+    ],
+    "observed_jobs": [
+      {
+        "job_id": "po_read_after_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+        "parent_job_id": null,
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "po_read_after_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "SELECT",
+        "billed_bytes": "31457280",
+        "created_at_ms": "1790044578786",
+        "ended_at_ms": "1790044579159"
+      },
+      {
+        "job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+        "parent_job_id": null,
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "SCRIPT",
+        "billed_bytes": "0",
+        "created_at_ms": "1790044572613",
+        "ended_at_ms": "1790044577835"
+      },
+      {
+        "job_id": "po_transform_5f624cd96d7420ac70f1d04569c97efa_22152ebc8fd8_937a846714d24ecaa27a950c7dd8d4bd",
+        "parent_job_id": null,
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "po_transform_5f624cd96d7420ac70f1d04569c97efa_22152ebc8fd8_937a846714d24ecaa27a950c7dd8d4bd",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "SELECT",
+        "billed_bytes": "20971520",
+        "created_at_ms": "1790044570609",
+        "ended_at_ms": "1790044571422"
+      },
+      {
+        "job_id": "po_load_raw_event_versions_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+        "parent_job_id": null,
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "po_load_raw_event_versions_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "LOAD",
+        "statement_type": null,
+        "billed_bytes": null,
+        "created_at_ms": "1790044568285",
+        "ended_at_ms": "1790044569445"
+      },
+      {
+        "job_id": "po_load_raw_lines_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+        "parent_job_id": null,
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "po_load_raw_lines_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "LOAD",
+        "statement_type": null,
+        "billed_bytes": null,
+        "created_at_ms": "1790044566072",
+        "ended_at_ms": "1790044567085"
+      },
+      {
+        "job_id": "po_read_before_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+        "parent_job_id": null,
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "po_read_before_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "SELECT",
+        "billed_bytes": "0",
+        "created_at_ms": "1790044564478",
+        "ended_at_ms": "1790044564756"
+      }
+    ],
+    "publication_child_jobs": [
+      {
+        "job_id": "script_job_593472566bc08c1bfa3d5aab162420b2_5",
+        "parent_job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "script_job_593472566bc08c1bfa3d5aab162420b2_5",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "COMMIT_TRANSACTION",
+        "billed_bytes": "0",
+        "created_at_ms": "1790044577455",
+        "ended_at_ms": "1790044577614"
+      },
+      {
+        "job_id": "script_job_7a489d9712a5052f8abccf824c5654ba_4",
+        "parent_job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "script_job_7a489d9712a5052f8abccf824c5654ba_4",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "INSERT",
+        "billed_bytes": "0",
+        "created_at_ms": "1790044576106",
+        "ended_at_ms": "1790044577217"
+      },
+      {
+        "job_id": "script_job_19393c58c9544118b46422c63c418367_3",
+        "parent_job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "script_job_19393c58c9544118b46422c63c418367_3",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "INSERT",
+        "billed_bytes": "0",
+        "created_at_ms": "1790044574883",
+        "ended_at_ms": "1790044575872"
+      },
+      {
+        "job_id": "script_job_9b1bb775551597ab5fe99af4d6e20ae4_2",
+        "parent_job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "script_job_9b1bb775551597ab5fe99af4d6e20ae4_2",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "INSERT",
+        "billed_bytes": "0",
+        "created_at_ms": "1790044573692",
+        "ended_at_ms": "1790044574633"
+      },
+      {
+        "job_id": "script_job_c51690d469dfa739e3925f4fa0aad234_1",
+        "parent_job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "script_job_c51690d469dfa739e3925f4fa0aad234_1",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "ASSERT",
+        "billed_bytes": "0",
+        "created_at_ms": "1790044573221",
+        "ended_at_ms": "1790044573587"
+      },
+      {
+        "job_id": "script_job_0f05d55a6a83e6c6e05913894bb3bda2_0",
+        "parent_job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+        "reference": {
+          "projectId": "astra-po-lab-20260921",
+          "jobId": "script_job_0f05d55a6a83e6c6e05913894bb3bda2_0",
+          "location": "us-east4"
+        },
+        "state": "DONE",
+        "error_reason": null,
+        "job_type": "QUERY",
+        "statement_type": "BEGIN_TRANSACTION",
+        "billed_bytes": "0",
+        "created_at_ms": "1790044572749",
+        "ended_at_ms": "1790044572889"
+      }
+    ],
+    "published_rows": [
+      {
+        "row_kind": "MANIFEST",
+        "row_json": "{\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\",\"status\":\"READY\",\"validation_result\":\"PASS\",\"fixture_id\":\"FIX-01\",\"source_line_count\":10,\"source_event_count\":10,\"canonical_event_count\":10,\"published_line_count\":10,\"transform_sha256\":\"22152ebc8fd883f5185ee31305a5a7339250611957b6e8dcb441470715b104bb\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L10\",\"po_id\":\"PO-L10\",\"line_number\":1,\"supplier_id\":\"S2\",\"buyer_id\":\"B2\",\"sku_id\":\"SKU-L10\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-22\",\"ordered_qty\":7,\"unit_price_cents\":900,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-22\",\"received_qty\":0,\"cancelled_qty\":0,\"remaining_qty\":7,\"remaining_value_cents\":6300,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":false,\"days_overdue\":0,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L09\",\"po_id\":\"PO-L09\",\"line_number\":1,\"supplier_id\":\"S3\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L09\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-20\",\"ordered_qty\":4,\"unit_price_cents\":800,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-20\",\"received_qty\":0,\"cancelled_qty\":0,\"remaining_qty\":4,\"remaining_value_cents\":3200,\"overdue_value_cents\":3200,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":true,\"days_overdue\":1,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L01\",\"po_id\":\"PO-L01\",\"line_number\":1,\"supplier_id\":\"S1\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L01\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-20\",\"ordered_qty\":10,\"unit_price_cents\":1000,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-20\",\"received_qty\":4,\"cancelled_qty\":0,\"remaining_qty\":6,\"remaining_value_cents\":6000,\"overdue_value_cents\":6000,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":true,\"days_overdue\":1,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L04\",\"po_id\":\"PO-L04\",\"line_number\":1,\"supplier_id\":\"S2\",\"buyer_id\":\"B2\",\"sku_id\":\"SKU-L04\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-19\",\"ordered_qty\":10,\"unit_price_cents\":400,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-19\",\"received_qty\":3,\"cancelled_qty\":7,\"remaining_qty\":0,\"remaining_value_cents\":0,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":false,\"is_overdue\":false,\"days_overdue\":null,\"closure_status\":\"Closed mixed\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L03\",\"po_id\":\"PO-L03\",\"line_number\":1,\"supplier_id\":\"S2\",\"buyer_id\":\"B2\",\"sku_id\":\"SKU-L03\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-18\",\"ordered_qty\":12,\"unit_price_cents\":200,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-18\",\"received_qty\":12,\"cancelled_qty\":0,\"remaining_qty\":0,\"remaining_value_cents\":0,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":false,\"is_overdue\":false,\"days_overdue\":null,\"closure_status\":\"Received\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L07\",\"po_id\":\"PO-L07\",\"line_number\":1,\"supplier_id\":\"S3\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L07\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-17\",\"ordered_qty\":6,\"unit_price_cents\":700,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-19\",\"received_qty\":2,\"cancelled_qty\":0,\"remaining_qty\":4,\"remaining_value_cents\":2800,\"overdue_value_cents\":2800,\"promise_slip_days\":2,\"is_open\":true,\"is_overdue\":true,\"days_overdue\":2,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L02\",\"po_id\":\"PO-L02\",\"line_number\":1,\"supplier_id\":\"S1\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L02\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-21\",\"ordered_qty\":8,\"unit_price_cents\":500,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-21\",\"received_qty\":0,\"cancelled_qty\":0,\"remaining_qty\":8,\"remaining_value_cents\":4000,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":false,\"days_overdue\":0,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L05\",\"po_id\":\"PO-L05\",\"line_number\":1,\"supplier_id\":\"S1\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L05\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-19\",\"ordered_qty\":5,\"unit_price_cents\":300,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-19\",\"received_qty\":0,\"cancelled_qty\":5,\"remaining_qty\":0,\"remaining_value_cents\":0,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":false,\"is_overdue\":false,\"days_overdue\":null,\"closure_status\":\"Cancelled\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L08\",\"po_id\":\"PO-L08\",\"line_number\":1,\"supplier_id\":\"S3\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L08\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-20\",\"ordered_qty\":9,\"unit_price_cents\":600,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-20\",\"received_qty\":5,\"cancelled_qty\":0,\"remaining_qty\":4,\"remaining_value_cents\":2400,\"overdue_value_cents\":2400,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":true,\"days_overdue\":1,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "LINE",
+        "row_json": "{\"line_id\":\"L06\",\"po_id\":\"PO-L06\",\"line_number\":1,\"supplier_id\":\"S2\",\"buyer_id\":\"B2\",\"sku_id\":\"SKU-L06\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-18\",\"ordered_qty\":20,\"unit_price_cents\":200,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-23\",\"received_qty\":5,\"cancelled_qty\":0,\"remaining_qty\":15,\"remaining_value_cents\":3000,\"overdue_value_cents\":0,\"promise_slip_days\":5,\"is_open\":true,\"is_overdue\":false,\"days_overdue\":0,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E02\",\"revision\":1,\"line_id\":\"L03\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-18T15:00:00Z\",\"source_recorded_at\":\"2026-09-18T15:05:00Z\",\"is_void\":false,\"quantity\":12,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E05\",\"revision\":1,\"line_id\":\"L05\",\"event_type\":\"CANCEL\",\"event_at\":\"2026-09-18T17:00:00Z\",\"source_recorded_at\":\"2026-09-18T17:05:00Z\",\"is_void\":false,\"quantity\":5,\"promised_date\":null,\"reason_code\":\"BUYER_CANCEL\",\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E10\",\"revision\":1,\"line_id\":\"L08\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-19T11:00:00Z\",\"source_recorded_at\":\"2026-09-19T11:05:00Z\",\"is_void\":false,\"quantity\":5,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E04\",\"revision\":1,\"line_id\":\"L04\",\"event_type\":\"CANCEL\",\"event_at\":\"2026-09-19T14:00:00Z\",\"source_recorded_at\":\"2026-09-19T14:05:00Z\",\"is_void\":false,\"quantity\":7,\"promised_date\":null,\"reason_code\":\"CLOSE_SHORT\",\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E03\",\"revision\":1,\"line_id\":\"L04\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-18T16:00:00Z\",\"source_recorded_at\":\"2026-09-18T16:05:00Z\",\"is_void\":false,\"quantity\":3,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E07\",\"revision\":1,\"line_id\":\"L06\",\"event_type\":\"PROMISE\",\"event_at\":\"2026-09-19T09:00:00Z\",\"source_recorded_at\":\"2026-09-19T09:05:00Z\",\"is_void\":false,\"quantity\":null,\"promised_date\":\"2026-09-23\",\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E09\",\"revision\":1,\"line_id\":\"L07\",\"event_type\":\"PROMISE\",\"event_at\":\"2026-09-18T10:00:00Z\",\"source_recorded_at\":\"2026-09-18T10:05:00Z\",\"is_void\":false,\"quantity\":null,\"promised_date\":\"2026-09-19\",\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E06\",\"revision\":1,\"line_id\":\"L06\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-18T18:00:00Z\",\"source_recorded_at\":\"2026-09-18T18:05:00Z\",\"is_void\":false,\"quantity\":5,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E08\",\"revision\":1,\"line_id\":\"L07\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-18T12:00:00Z\",\"source_recorded_at\":\"2026-09-18T12:05:00Z\",\"is_void\":false,\"quantity\":2,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      },
+      {
+        "row_kind": "EVENT",
+        "row_json": "{\"event_id\":\"E01\",\"revision\":1,\"line_id\":\"L01\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-19T14:00:00Z\",\"source_recorded_at\":\"2026-09-19T14:05:00Z\",\"is_void\":false,\"quantity\":4,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T12:00:00Z\",\"source_package_hash\":\"d770f164353581d3c890d5bba4ca47b6ebef38142dbb36988c1a2807970a9c6f\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-22T02:36:12.755Z\"}"
+      }
+    ],
+    "auth": "Renewed CLI and scoped runtime existing-result retrieval verified; no new SQL/load submitted",
+    "limitations": "Default named-dataset inventory excludes BigQuery-managed anonymous result caches. Parent and child byte totals are not double counted."
+  }
+}

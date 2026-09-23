@@ -1,0 +1,459 @@
+{
+  "observed_at_utc": "2026-09-23T02:50:40.289Z",
+  "quota_date": "2026-09-22",
+  "attempts": [
+    {
+      "id": "153c9b8cf6224b80be2e6f9041bcce85",
+      "quota_date": "2026-09-22",
+      "started_at_utc": "2026-09-23T02:44:53.038Z",
+      "batch_id": "fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a",
+      "mode": "execute",
+      "reserved_bytes": 2147483648,
+      "status": "FAIL",
+      "jobs": [
+        {
+          "stage": "read_estimate",
+          "dry_run": true,
+          "estimated_bytes": 6210,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "transform_estimate",
+          "dry_run": true,
+          "estimated_bytes": 2855,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "publish_estimate",
+          "dry_run": true,
+          "estimated_bytes": 0,
+          "maximum_bytes_billed": 536870912
+        },
+        {
+          "stage": "read_before",
+          "job_id": "po_read_before_d2076920fb226875340c87881dc043ed_45589f992a71_153c9b8cf6224b80be2e6f9041bcce85",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 31457280
+        },
+        {
+          "stage": "load_raw_lines",
+          "job_id": "po_load_raw_lines_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+          "status": "DONE",
+          "output_rows": 10,
+          "reused_existing_job": false
+        },
+        {
+          "stage": "load_raw_event_versions",
+          "job_id": "po_load_raw_event_versions_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+          "status": "DONE",
+          "output_rows": 12,
+          "reused_existing_job": false
+        },
+        {
+          "stage": "populated_estimate",
+          "dry_run": true,
+          "estimated_bytes": 5958,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "transform",
+          "job_id": "po_transform_d2076920fb226875340c87881dc043ed_22152ebc8fd8_153c9b8cf6224b80be2e6f9041bcce85",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 20971520
+        },
+        {
+          "stage": "read_retained",
+          "job_id": "po_read_retained_d2076920fb226875340c87881dc043ed_45589f992a71_153c9b8cf6224b80be2e6f9041bcce85",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 31457280
+        }
+      ],
+      "stage": "CONTROLLED_STOP_BEFORE_PUBLICATION",
+      "billed_bytes": 83886080,
+      "validation": "PASS",
+      "completed_at_utc": "2026-09-23T02:45:05.566Z",
+      "result": {
+        "outcome": "CONTROLLED_STOP_BEFORE_PUBLICATION",
+        "batch_id": "fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a",
+        "candidate_validation": "PASS",
+        "publication": "Not Run",
+        "expected_controlled_stop": true,
+        "billed_bytes": 83886080,
+        "retained_batch": {
+          "batch_id": "fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc",
+          "validation": "PASS",
+          "line_count": 10,
+          "event_count": 10
+        },
+        "desktop_verification": "Not Run"
+      },
+      "failure": {
+        "code": "EPERM"
+      }
+    },
+    {
+      "id": "239c9a6163484258bc62ccef50179c9c",
+      "quota_date": "2026-09-22",
+      "started_at_utc": "2026-09-23T02:48:19.324Z",
+      "batch_id": "fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a",
+      "mode": "execute",
+      "reserved_bytes": 2147483648,
+      "status": "PASS",
+      "jobs": [
+        {
+          "stage": "read_estimate",
+          "dry_run": true,
+          "estimated_bytes": 6210,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "transform_estimate",
+          "dry_run": true,
+          "estimated_bytes": 5958,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "publish_estimate",
+          "dry_run": true,
+          "estimated_bytes": 0,
+          "maximum_bytes_billed": 536870912
+        },
+        {
+          "stage": "read_before",
+          "job_id": "po_read_before_d2076920fb226875340c87881dc043ed_45589f992a71_239c9a6163484258bc62ccef50179c9c",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 31457280
+        },
+        {
+          "stage": "load_raw_lines",
+          "job_id": "po_load_raw_lines_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+          "status": "DONE",
+          "output_rows": 10,
+          "reused_existing_job": true
+        },
+        {
+          "stage": "load_raw_event_versions",
+          "job_id": "po_load_raw_event_versions_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+          "status": "DONE",
+          "output_rows": 12,
+          "reused_existing_job": true
+        },
+        {
+          "stage": "populated_estimate",
+          "dry_run": true,
+          "estimated_bytes": 5958,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "transform",
+          "job_id": "po_transform_d2076920fb226875340c87881dc043ed_22152ebc8fd8_239c9a6163484258bc62ccef50179c9c",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 20971520
+        },
+        {
+          "stage": "publish_final_estimate",
+          "dry_run": true,
+          "estimated_bytes": 0,
+          "maximum_bytes_billed": 523763712
+        },
+        {
+          "stage": "publish",
+          "job_id": "po_publish_d2076920fb226875340c87881dc043ed_fec0e1cd22f1",
+          "maximum_bytes_billed": 523763712,
+          "status": "DONE",
+          "billed_bytes": 31457280
+        },
+        {
+          "stage": "read_after",
+          "job_id": "po_read_after_d2076920fb226875340c87881dc043ed_45589f992a71_239c9a6163484258bc62ccef50179c9c",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 31457280
+        },
+        {
+          "stage": "read_retained",
+          "job_id": "po_read_retained_d2076920fb226875340c87881dc043ed_45589f992a71_239c9a6163484258bc62ccef50179c9c",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 31457280
+        }
+      ],
+      "stage": "DRY_RUN_COMPLETE:publish_final_estimate",
+      "billed_bytes": 146800640,
+      "validation": "PASS",
+      "completed_at_utc": "2026-09-23T02:48:32.696Z",
+      "result": {
+        "outcome": "PUBLISHED_AND_RECONCILED",
+        "batch_id": "fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a",
+        "line_count": 10,
+        "event_count": 12,
+        "billed_bytes": 146800640,
+        "validation": "PASS",
+        "publication": "Pass",
+        "retained_batch": {
+          "batch_id": "fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc",
+          "validation": "PASS",
+          "line_count": 10,
+          "event_count": 10
+        },
+        "desktop_verification": "Not Run"
+      }
+    },
+    {
+      "id": "0c3890eac1454d668ccbcb0a3a494091",
+      "quota_date": "2026-09-22",
+      "started_at_utc": "2026-09-23T02:49:33.618Z",
+      "batch_id": "fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a",
+      "mode": "execute",
+      "reserved_bytes": 2147483648,
+      "status": "PASS",
+      "jobs": [
+        {
+          "stage": "read_estimate",
+          "dry_run": true,
+          "estimated_bytes": 12898,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "transform_estimate",
+          "dry_run": true,
+          "estimated_bytes": 5958,
+          "maximum_bytes_billed": 1073741824
+        },
+        {
+          "stage": "publish_estimate",
+          "dry_run": true,
+          "estimated_bytes": 0,
+          "maximum_bytes_billed": 536870912
+        },
+        {
+          "stage": "read_before",
+          "job_id": "po_read_before_d2076920fb226875340c87881dc043ed_45589f992a71_0c3890eac1454d668ccbcb0a3a494091",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 31457280
+        },
+        {
+          "stage": "read_retained",
+          "job_id": "po_read_retained_d2076920fb226875340c87881dc043ed_45589f992a71_0c3890eac1454d668ccbcb0a3a494091",
+          "maximum_bytes_billed": 1073741824,
+          "status": "DONE",
+          "billed_bytes": 31457280
+        }
+      ],
+      "stage": "DRY_RUN_COMPLETE:publish_estimate",
+      "billed_bytes": 62914560,
+      "completed_at_utc": "2026-09-23T02:49:38.306Z",
+      "result": {
+        "outcome": "VERIFIED_NO_OP",
+        "batch_id": "fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a",
+        "billed_bytes": 62914560,
+        "line_count": 10,
+        "publication": "Pass",
+        "retained_batch": {
+          "batch_id": "fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc",
+          "validation": "PASS",
+          "line_count": 10,
+          "event_count": 10
+        }
+      }
+    }
+  ],
+  "read_after_rows": [
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E03\",\"revision\":1,\"line_id\":\"L04\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-18T16:00:00Z\",\"source_recorded_at\":\"2026-09-18T16:05:00Z\",\"is_void\":false,\"quantity\":3,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E07\",\"revision\":1,\"line_id\":\"L06\",\"event_type\":\"PROMISE\",\"event_at\":\"2026-09-19T09:00:00Z\",\"source_recorded_at\":\"2026-09-19T09:05:00Z\",\"is_void\":false,\"quantity\":null,\"promised_date\":\"2026-09-23\",\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E01\",\"revision\":1,\"line_id\":\"L01\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-19T14:00:00Z\",\"source_recorded_at\":\"2026-09-19T14:05:00Z\",\"is_void\":false,\"quantity\":4,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E08\",\"revision\":1,\"line_id\":\"L07\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-18T12:00:00Z\",\"source_recorded_at\":\"2026-09-18T12:05:00Z\",\"is_void\":false,\"quantity\":2,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E05\",\"revision\":1,\"line_id\":\"L05\",\"event_type\":\"CANCEL\",\"event_at\":\"2026-09-18T17:00:00Z\",\"source_recorded_at\":\"2026-09-18T17:05:00Z\",\"is_void\":false,\"quantity\":5,\"promised_date\":null,\"reason_code\":\"BUYER_CANCEL\",\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E09\",\"revision\":1,\"line_id\":\"L07\",\"event_type\":\"PROMISE\",\"event_at\":\"2026-09-18T10:00:00Z\",\"source_recorded_at\":\"2026-09-18T10:05:00Z\",\"is_void\":false,\"quantity\":null,\"promised_date\":\"2026-09-19\",\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E10\",\"revision\":2,\"line_id\":\"L08\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-19T11:00:00Z\",\"source_recorded_at\":\"2026-09-21T12:15:00Z\",\"is_void\":false,\"quantity\":3,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E02\",\"revision\":1,\"line_id\":\"L03\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-18T15:00:00Z\",\"source_recorded_at\":\"2026-09-18T15:05:00Z\",\"is_void\":false,\"quantity\":12,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E04\",\"revision\":1,\"line_id\":\"L04\",\"event_type\":\"CANCEL\",\"event_at\":\"2026-09-19T14:00:00Z\",\"source_recorded_at\":\"2026-09-19T14:05:00Z\",\"is_void\":false,\"quantity\":7,\"promised_date\":null,\"reason_code\":\"CLOSE_SHORT\",\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E11\",\"revision\":1,\"line_id\":\"L09\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-19T12:00:00Z\",\"source_recorded_at\":\"2026-09-21T12:30:00Z\",\"is_void\":false,\"quantity\":2,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E06\",\"revision\":1,\"line_id\":\"L06\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-18T18:00:00Z\",\"source_recorded_at\":\"2026-09-18T18:05:00Z\",\"is_void\":false,\"quantity\":5,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":true,\"contributes_to_state\":true,\"is_superseded\":false,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "EVENT",
+      "row_json": "{\"event_id\":\"E10\",\"revision\":1,\"line_id\":\"L08\",\"event_type\":\"RECEIPT\",\"event_at\":\"2026-09-19T11:00:00Z\",\"source_recorded_at\":\"2026-09-19T11:05:00Z\",\"is_void\":false,\"quantity\":5,\"promised_date\":null,\"reason_code\":null,\"is_winning_revision\":false,\"contributes_to_state\":false,\"is_superseded\":true,\"is_future_effective\":false,\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "MANIFEST",
+      "row_json": "{\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\",\"status\":\"READY\",\"validation_result\":\"PASS\",\"fixture_id\":\"FIX-02\",\"source_line_count\":10,\"source_event_count\":12,\"canonical_event_count\":12,\"published_line_count\":10,\"transform_sha256\":\"22152ebc8fd883f5185ee31305a5a7339250611957b6e8dcb441470715b104bb\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L10\",\"po_id\":\"PO-L10\",\"line_number\":1,\"supplier_id\":\"S2\",\"buyer_id\":\"B2\",\"sku_id\":\"SKU-L10\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-22\",\"ordered_qty\":7,\"unit_price_cents\":900,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-22\",\"received_qty\":0,\"cancelled_qty\":0,\"remaining_qty\":7,\"remaining_value_cents\":6300,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":false,\"days_overdue\":0,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L08\",\"po_id\":\"PO-L08\",\"line_number\":1,\"supplier_id\":\"S3\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L08\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-20\",\"ordered_qty\":9,\"unit_price_cents\":600,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-20\",\"received_qty\":3,\"cancelled_qty\":0,\"remaining_qty\":6,\"remaining_value_cents\":3600,\"overdue_value_cents\":3600,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":true,\"days_overdue\":1,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L01\",\"po_id\":\"PO-L01\",\"line_number\":1,\"supplier_id\":\"S1\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L01\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-20\",\"ordered_qty\":10,\"unit_price_cents\":1000,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-20\",\"received_qty\":4,\"cancelled_qty\":0,\"remaining_qty\":6,\"remaining_value_cents\":6000,\"overdue_value_cents\":6000,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":true,\"days_overdue\":1,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L09\",\"po_id\":\"PO-L09\",\"line_number\":1,\"supplier_id\":\"S3\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L09\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-20\",\"ordered_qty\":4,\"unit_price_cents\":800,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-20\",\"received_qty\":2,\"cancelled_qty\":0,\"remaining_qty\":2,\"remaining_value_cents\":1600,\"overdue_value_cents\":1600,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":true,\"days_overdue\":1,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L03\",\"po_id\":\"PO-L03\",\"line_number\":1,\"supplier_id\":\"S2\",\"buyer_id\":\"B2\",\"sku_id\":\"SKU-L03\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-18\",\"ordered_qty\":12,\"unit_price_cents\":200,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-18\",\"received_qty\":12,\"cancelled_qty\":0,\"remaining_qty\":0,\"remaining_value_cents\":0,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":false,\"is_overdue\":false,\"days_overdue\":null,\"closure_status\":\"Received\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L07\",\"po_id\":\"PO-L07\",\"line_number\":1,\"supplier_id\":\"S3\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L07\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-17\",\"ordered_qty\":6,\"unit_price_cents\":700,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-19\",\"received_qty\":2,\"cancelled_qty\":0,\"remaining_qty\":4,\"remaining_value_cents\":2800,\"overdue_value_cents\":2800,\"promise_slip_days\":2,\"is_open\":true,\"is_overdue\":true,\"days_overdue\":2,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L02\",\"po_id\":\"PO-L02\",\"line_number\":1,\"supplier_id\":\"S1\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L02\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-21\",\"ordered_qty\":8,\"unit_price_cents\":500,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-21\",\"received_qty\":0,\"cancelled_qty\":0,\"remaining_qty\":8,\"remaining_value_cents\":4000,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":true,\"is_overdue\":false,\"days_overdue\":0,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L05\",\"po_id\":\"PO-L05\",\"line_number\":1,\"supplier_id\":\"S1\",\"buyer_id\":\"B1\",\"sku_id\":\"SKU-L05\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-19\",\"ordered_qty\":5,\"unit_price_cents\":300,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-19\",\"received_qty\":0,\"cancelled_qty\":5,\"remaining_qty\":0,\"remaining_value_cents\":0,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":false,\"is_overdue\":false,\"days_overdue\":null,\"closure_status\":\"Cancelled\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L04\",\"po_id\":\"PO-L04\",\"line_number\":1,\"supplier_id\":\"S2\",\"buyer_id\":\"B2\",\"sku_id\":\"SKU-L04\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-19\",\"ordered_qty\":10,\"unit_price_cents\":400,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-19\",\"received_qty\":3,\"cancelled_qty\":7,\"remaining_qty\":0,\"remaining_value_cents\":0,\"overdue_value_cents\":0,\"promise_slip_days\":0,\"is_open\":false,\"is_overdue\":false,\"days_overdue\":null,\"closure_status\":\"Closed mixed\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    },
+    {
+      "row_kind": "LINE",
+      "row_json": "{\"line_id\":\"L06\",\"po_id\":\"PO-L06\",\"line_number\":1,\"supplier_id\":\"S2\",\"buyer_id\":\"B2\",\"sku_id\":\"SKU-L06\",\"ordered_at\":\"2026-09-07T13:00:00Z\",\"source_recorded_at\":\"2026-09-07T13:05:00Z\",\"initial_promised_date\":\"2026-09-18\",\"ordered_qty\":20,\"unit_price_cents\":200,\"currency\":\"USD\",\"uom\":\"EA\",\"current_promised_date\":\"2026-09-23\",\"received_qty\":5,\"cancelled_qty\":0,\"remaining_qty\":15,\"remaining_value_cents\":3000,\"overdue_value_cents\":0,\"promise_slip_days\":5,\"is_open\":true,\"is_overdue\":false,\"days_overdue\":0,\"closure_status\":\"Open\",\"source_business_date\":\"2026-09-21\",\"batch_id\":\"fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a\",\"business_as_of\":\"2026-09-21T12:00:00Z\",\"knowledge_cutoff\":\"2026-09-21T13:00:00Z\",\"source_package_hash\":\"7233ba96d4b491bbecb6c83fd292940e66a27706d63aaa014f0959d23f0f4c20\",\"contract_version\":\"SRC-v1.0\",\"provenance_class\":\"SYNTHETIC\",\"published_at\":\"2026-09-23T02:48:24.403Z\"}"
+    }
+  ],
+  "publication_child_jobs": [
+    {
+      "job_id": "script_job_ada86eaf11759d6b83322f8084243b66_5",
+      "state": "DONE",
+      "error_reason": null,
+      "billed_bytes": "0",
+      "statement_type": "COMMIT_TRANSACTION"
+    },
+    {
+      "job_id": "script_job_38c8c23732ac7d8fe38ae29b9050d9e0_4",
+      "state": "DONE",
+      "error_reason": null,
+      "billed_bytes": "0",
+      "statement_type": "INSERT"
+    },
+    {
+      "job_id": "script_job_16a924e0acbc305ac13e4b7d8c270e05_3",
+      "state": "DONE",
+      "error_reason": null,
+      "billed_bytes": "0",
+      "statement_type": "INSERT"
+    },
+    {
+      "job_id": "script_job_be17e8661e7e1db5ff3b47b72eee005d_2",
+      "state": "DONE",
+      "error_reason": null,
+      "billed_bytes": "0",
+      "statement_type": "INSERT"
+    },
+    {
+      "job_id": "script_job_7f3687a5a62f63382c41d52ecdcab6d1_1",
+      "state": "DONE",
+      "error_reason": null,
+      "billed_bytes": "31457280",
+      "statement_type": "ASSERT"
+    },
+    {
+      "job_id": "script_job_65ccd02c9ef47d6b089b6335eec2d623_0",
+      "state": "DONE",
+      "error_reason": null,
+      "billed_bytes": "0",
+      "statement_type": "BEGIN_TRANSACTION"
+    }
+  ],
+  "inventory": [
+    {
+      "dataset": "po_work",
+      "table": "raw_lines",
+      "rows": "20",
+      "logical_bytes": "6342",
+      "expiry_time_ms": "1790648789341"
+    },
+    {
+      "dataset": "po_work",
+      "table": "raw_event_versions",
+      "rows": "22",
+      "logical_bytes": "6324",
+      "expiry_time_ms": "1790648789341"
+    },
+    {
+      "dataset": "po_serving",
+      "table": "po_line_snapshot",
+      "rows": "20",
+      "logical_bytes": "6986",
+      "expiry_time_ms": "1791253589341"
+    },
+    {
+      "dataset": "po_serving",
+      "table": "event_evidence",
+      "rows": "22",
+      "logical_bytes": "5308",
+      "expiry_time_ms": "1791253589341"
+    },
+    {
+      "dataset": "po_serving",
+      "table": "batch_manifest",
+      "rows": "2",
+      "logical_bytes": "604",
+      "expiry_time_ms": "1791253589341"
+    }
+  ],
+  "source_hashes": {
+    "src/pipeline/core.mjs": "e5f3b182625f12c1505adeffda53051c4fe3a72a21ce500c27abb0c04eaa824b",
+    "src/pipeline/bigquery.mjs": "15f61d4703039efd2f8e1e9d043f304ed76377a93bfc7026c165ca817a40b84d",
+    "src/pipeline/ledger.mjs": "b9cf3640b17a875572042c712b7c0ffc1d2a05f5280f2827957770c7f93f3aa1",
+    "scripts/run-pipeline.mjs": "fe72ebb3196896d2db941584e2ea86aac0855c3006e7412acff25248f17b988b",
+    "fixtures/po/FIX-01/expected.json": "6d897f8b1c8d7e92c8a3e3a69d8b6c53ce2df0f9a39b0ca10f85b86059328223",
+    "fixtures/po/FIX-02/expected.json": "b855a4d8ef008b25d1552a493ed54acb17ead5c39f1a8015f4e7ba635b9a67ff",
+    "sql/fix01-transform.sql": "22152ebc8fd883f5185ee31305a5a7339250611957b6e8dcb441470715b104bb"
+  },
+  "query_cost": {
+    "current_day_billed_bytes": 293601280,
+    "earlier_pipeline_and_desktop_bytes": 73400320,
+    "cumulative_billed_bytes": 367001600,
+    "gross_query_estimate_usd": 0.002086162567138672,
+    "actual_invoice_usd": null
+  },
+  "limits": "All three current-day attempts consumed; no further workload today. Parent/child script totals are not double counted. Metadata/result API reads submit no new queries."
+}

@@ -1,0 +1,124 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "Lines",
+  "position": {
+    "x": 24,
+    "y": 305,
+    "width": 1232,
+    "height": 385,
+    "z": 0,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "line_id"
+                }
+              },
+              "queryRef": "PoLines.line_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "supplier_id"
+                }
+              },
+              "queryRef": "PoLines.supplier_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "closure_status"
+                }
+              },
+              "queryRef": "PoLines.closure_status"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "Remaining quantity"
+                }
+              },
+              "queryRef": "PoLines.Remaining quantity"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "Overdue value USD"
+                }
+              },
+              "queryRef": "PoLines.Overdue value USD"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "is_overdue"
+                }
+              },
+              "queryRef": "PoLines.is_overdue"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Line contributions - not a final report design'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

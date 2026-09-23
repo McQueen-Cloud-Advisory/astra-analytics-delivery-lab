@@ -1,0 +1,86 @@
+{
+  "observed_at_utc": "2026-09-22T02:25:23.838Z",
+  "decision": "DEC-G5-001",
+  "project_id": "astra-po-lab-20260921",
+  "project_number": "329955978985",
+  "location": "us-east4",
+  "billing": {
+    "enabled": true,
+    "account_open": true,
+    "currency": "USD",
+    "redacted_account": "ending-BA6E",
+    "headroom_at_least_usd": 15,
+    "headroom_source": "manager confirmation",
+    "billing_statement_verified": false
+  },
+  "prices": {
+    "source": "Cloud Billing Pricing API v2beta public SKU/price GET",
+    "analysis": {
+      "sku": "5094-D030-92B2",
+      "region": "us-east4",
+      "usd_per_tib": 6.25
+    },
+    "active_logical_storage": {
+      "sku": "645D-4279-C1D2",
+      "region": "us-east4",
+      "usd_per_gib_month": 0.023
+    },
+    "free_tiers_used_in_forecast": false
+  },
+  "budget": {
+    "id": "ba95a502-0826-4f3a-b6c2-2f9814433e6d",
+    "display_name": "Astra PO Lab - 10 USD monthly",
+    "usd": 10,
+    "calendar": "MONTH",
+    "projects": [
+      "projects/329955978985"
+    ],
+    "services": "all",
+    "credits": "EXCLUDE_ALL_CREDITS",
+    "actual_thresholds": [
+      0.5,
+      0.8,
+      1
+    ],
+    "forecast_thresholds": [
+      1
+    ],
+    "notifications": "default billing IAM recipients",
+    "coverage": "alerts only; not a spending cap"
+  },
+  "query_quota": {
+    "metric": "bigquery.googleapis.com/quota/query/usage",
+    "unit": "MiBy",
+    "period": "1/d/{project}",
+    "effective_limit": 10240,
+    "gib_per_day": 10,
+    "reset_timezone": "America/Los_Angeles",
+    "precision": "service quota approximate; not a monetary cap",
+    "requested_decrease_safety_exception": "LIMIT_DECREASE_PERCENTAGE_TOO_HIGH only; below-current-usage check retained"
+  },
+  "runtime": {
+    "service_account": "po-pipeline@astra-po-lab-20260921.iam.gserviceaccount.com",
+    "project_roles": [
+      "roles/bigquery.jobUser"
+    ],
+    "user_managed_keys": 0,
+    "token_creator_grant": "manager on this service account only",
+    "metadata_request_succeeded": true,
+    "dataset_grants": "pending provisioner",
+    "auth_route": "explicit gcloud impersonation; tokens in memory; lab project and quota; no shared ADC or owner fallback"
+  },
+  "setup_apis_enabled": [
+    "iam.googleapis.com",
+    "iamcredentials.googleapis.com",
+    "cloudbilling.googleapis.com",
+    "billingbudgets.googleapis.com"
+  ],
+  "before_data": {
+    "setup_owner_dataset_count": 0,
+    "setup_owner_job_count": 0,
+    "known_attributable_workload_usd": 0,
+    "actual_invoice_usd": null
+  },
+  "pipeline_execution": "Not Run",
+  "desktop_execution": "Not Run"
+}

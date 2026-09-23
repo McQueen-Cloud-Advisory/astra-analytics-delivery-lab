@@ -1,0 +1,3 @@
+# Byte-pinned source files must not change with the host's autocrlf setting.
+*.jsonl text eol=lf
+*.json text eol=lf

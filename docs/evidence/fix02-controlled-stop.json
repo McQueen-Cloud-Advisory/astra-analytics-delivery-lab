@@ -1,0 +1,160 @@
+{
+  "observed_at_utc": "2026-09-23T02:47:12.547Z",
+  "attempt": {
+    "id": "153c9b8cf6224b80be2e6f9041bcce85",
+    "quota_date": "2026-09-22",
+    "started_at_utc": "2026-09-23T02:44:53.038Z",
+    "batch_id": "fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a",
+    "mode": "execute",
+    "reserved_bytes": 2147483648,
+    "status": "FAIL",
+    "jobs": [
+      {
+        "stage": "read_estimate",
+        "dry_run": true,
+        "estimated_bytes": 6210,
+        "maximum_bytes_billed": 1073741824
+      },
+      {
+        "stage": "transform_estimate",
+        "dry_run": true,
+        "estimated_bytes": 2855,
+        "maximum_bytes_billed": 1073741824
+      },
+      {
+        "stage": "publish_estimate",
+        "dry_run": true,
+        "estimated_bytes": 0,
+        "maximum_bytes_billed": 536870912
+      },
+      {
+        "stage": "read_before",
+        "job_id": "po_read_before_d2076920fb226875340c87881dc043ed_45589f992a71_153c9b8cf6224b80be2e6f9041bcce85",
+        "maximum_bytes_billed": 1073741824,
+        "status": "DONE",
+        "billed_bytes": 31457280
+      },
+      {
+        "stage": "load_raw_lines",
+        "job_id": "po_load_raw_lines_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+        "status": "DONE",
+        "output_rows": 10,
+        "reused_existing_job": false
+      },
+      {
+        "stage": "load_raw_event_versions",
+        "job_id": "po_load_raw_event_versions_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+        "status": "DONE",
+        "output_rows": 12,
+        "reused_existing_job": false
+      },
+      {
+        "stage": "populated_estimate",
+        "dry_run": true,
+        "estimated_bytes": 5958,
+        "maximum_bytes_billed": 1073741824
+      },
+      {
+        "stage": "transform",
+        "job_id": "po_transform_d2076920fb226875340c87881dc043ed_22152ebc8fd8_153c9b8cf6224b80be2e6f9041bcce85",
+        "maximum_bytes_billed": 1073741824,
+        "status": "DONE",
+        "billed_bytes": 20971520
+      },
+      {
+        "stage": "read_retained",
+        "job_id": "po_read_retained_d2076920fb226875340c87881dc043ed_45589f992a71_153c9b8cf6224b80be2e6f9041bcce85",
+        "maximum_bytes_billed": 1073741824,
+        "status": "DONE",
+        "billed_bytes": 31457280
+      }
+    ],
+    "stage": "CONTROLLED_STOP_BEFORE_PUBLICATION",
+    "billed_bytes": 83886080,
+    "validation": "PASS",
+    "completed_at_utc": "2026-09-23T02:45:05.566Z",
+    "result": {
+      "outcome": "CONTROLLED_STOP_BEFORE_PUBLICATION",
+      "batch_id": "fix02_d2076920fb226875340c87881dc043ed685f586187d5f5c70095c1a9a9d4b52a",
+      "candidate_validation": "PASS",
+      "publication": "Not Run",
+      "expected_controlled_stop": true,
+      "billed_bytes": 83886080,
+      "retained_batch": {
+        "batch_id": "fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc",
+        "validation": "PASS",
+        "line_count": 10,
+        "event_count": 10
+      },
+      "desktop_verification": "Not Run"
+    },
+    "failure": {
+      "code": "EPERM"
+    }
+  },
+  "jobs": [
+    {
+      "id": "po_read_before_d2076920fb226875340c87881dc043ed_45589f992a71_153c9b8cf6224b80be2e6f9041bcce85",
+      "state": "DONE",
+      "error": null,
+      "location": "us-east4",
+      "project": "astra-po-lab-20260921",
+      "billed_bytes": "31457280",
+      "output_rows": null
+    },
+    {
+      "id": "po_load_raw_lines_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+      "state": "DONE",
+      "error": null,
+      "location": "us-east4",
+      "project": "astra-po-lab-20260921",
+      "billed_bytes": null,
+      "output_rows": "10"
+    },
+    {
+      "id": "po_load_raw_event_versions_d2076920fb226875340c87881dc043ed685f586187d5f5c7",
+      "state": "DONE",
+      "error": null,
+      "location": "us-east4",
+      "project": "astra-po-lab-20260921",
+      "billed_bytes": null,
+      "output_rows": "12"
+    },
+    {
+      "id": "po_transform_d2076920fb226875340c87881dc043ed_22152ebc8fd8_153c9b8cf6224b80be2e6f9041bcce85",
+      "state": "DONE",
+      "error": null,
+      "location": "us-east4",
+      "project": "astra-po-lab-20260921",
+      "billed_bytes": "20971520",
+      "output_rows": null
+    },
+    {
+      "id": "po_read_retained_d2076920fb226875340c87881dc043ed_45589f992a71_153c9b8cf6224b80be2e6f9041bcce85",
+      "state": "DONE",
+      "error": null,
+      "location": "us-east4",
+      "project": "astra-po-lab-20260921",
+      "billed_bytes": "31457280",
+      "output_rows": null
+    }
+  ],
+  "serving_inventory": [
+    {
+      "table": "po_line_snapshot",
+      "rows": "10",
+      "logical_bytes": "3493"
+    },
+    {
+      "table": "event_evidence",
+      "rows": "10",
+      "logical_bytes": "2415"
+    },
+    {
+      "table": "batch_manifest",
+      "rows": "1",
+      "logical_bytes": "302"
+    }
+  ],
+  "interpretation": "Intended stop occurred before publication; final local ledger replacement failed with EPERM. All recorded jobs inspected before any resume. No new job submitted."
+}

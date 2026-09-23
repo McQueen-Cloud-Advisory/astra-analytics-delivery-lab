@@ -1,0 +1,8 @@
+/// Agent binds the exact published FIX-01 batch before the authorized Desktop attempt.
+expression pBatchId = "fix01_5f624cd96d7420ac70f1d04569c97efa81697391353f6d455d5ec1dd1445c2cc" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 78e7f888-a203-4ebb-b5c6-e8be72837cfe
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

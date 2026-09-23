@@ -216,3 +216,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Power BI local caches, recovery, and machine-specific settings
+**/.pbi/
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/unappliedChanges.json
+**/.pbi/autoRecovery/
+
+# Local environment overrides; retain a sanitized example if introduced
+.env.*
+!.env.example
+
+# Node dependencies and bounded local pipeline output/evidence
+node_modules/
+.lab/
+coverage/

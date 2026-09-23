@@ -1,0 +1,463 @@
+{
+  "version": "1.0",
+  "runId": "HDG-20260920-01",
+  "preparedLocalDate": "2026-09-20",
+  "framework": "Gate 1 framework v1.0 / DEC-G1-001",
+  "survivorDecision": "Gate 2 package v1.0 / DEC-G2-001",
+  "sources": [
+    "docs/gates/gate-1-framework-v1.0-submitted.md",
+    "docs/gates/gate-2-package-v1.0-submitted.md",
+    "docs/portfolio/opportunity-portfolio.md"
+  ],
+  "evidenceClass": "Fictional company comparison assumptions and estimates; no observed business benefit or company source evidence.",
+  "confidence": "Low",
+  "actualLabConstraints": {
+    "humanParticipants": 1,
+    "developmentHours": null,
+    "agentRuntime": null,
+    "agentCostUsd": null,
+    "incrementalLicensingUsd": null,
+    "accessFeasibility": "Unknown; a separate condition, never a neutral numeric score",
+    "dataPolicy": "Use suitable lawfully usable public data where available; synthesize required unavailable fields/events; neither route establishes company readiness or business benefit."
+  },
+  "unknownCostHandling": "Scored dollar components are a provisional fictional benchmark, conditional on excluded purchases/licenses/access not crossing an anchor or reversing economics. Unknown additions are not zero and are not authorization. Actual lab feasibility and effort are outside these benchmark scores.",
+  "profileMeaning": {
+    "low": "Lower source/workload/effort and original lower benefit; favorable bounded company-source assumptions, not a probability forecast.",
+    "base": "Approved SCN benefit with explicit midpoint cost estimates and plausible bounded company-source assumptions.",
+    "high": "Higher source/workload/effort and original upper benefit; more difficult bounded company-source assumptions. Benefit upside is a sensitivity hypothesis, not an adopted replacement premise."
+  },
+  "criteria": [
+    {
+      "id": "business_value",
+      "label": "Business value",
+      "weightPercent": 20
+    },
+    {
+      "id": "complexity",
+      "label": "Implementation complexity",
+      "weightPercent": 20
+    },
+    {
+      "id": "development_cost",
+      "label": "Development cost",
+      "weightPercent": 15
+    },
+    {
+      "id": "maintenance_cost",
+      "label": "Maintenance cost",
+      "weightPercent": 20
+    },
+    {
+      "id": "time_to_value",
+      "label": "Time to value",
+      "weightPercent": 5
+    },
+    {
+      "id": "data_readiness",
+      "label": "Data readiness",
+      "weightPercent": 10
+    },
+    {
+      "id": "operational_risk",
+      "label": "Operational risk",
+      "weightPercent": 5
+    },
+    {
+      "id": "dependency_risk",
+      "label": "Dependency risk",
+      "weightPercent": 5
+    }
+  ],
+  "fullWeightScenarios": {
+    "ownership_first": [
+      15,
+      20,
+      15,
+      30,
+      5,
+      5,
+      5,
+      5
+    ],
+    "value_first": [
+      35,
+      15,
+      10,
+      15,
+      5,
+      10,
+      5,
+      5
+    ]
+  },
+  "practicalTieThreshold": 0.2,
+  "floorUsdPerYear": 10000,
+  "costing": {
+    "engineeringUsdPerHour": 100,
+    "hoursPerProfessionalDay": 8,
+    "professionalDaysPerWeek": 5,
+    "developmentCloudMonths": 2,
+    "queryUsdPerTiB": 6.25,
+    "storageUsdPerGiBMonth": 0.023,
+    "priceBasis": "Inherited dated portfolio assumptions/pricing reference, not a refreshed quote or actual bill.",
+    "unknownAdditions": [
+      "Required purchases",
+      "Power BI and other incremental licenses",
+      "Source-system/API/connector access",
+      "Agent/tool usage",
+      "Additional historical remediation outside stated ranges"
+    ]
+  },
+  "cloudProfiles": {
+    "B1": {
+      "lab": {
+        "storedGiB": [
+          1,
+          3,
+          5
+        ],
+        "queryTiBPerMonth": [
+          0.1,
+          0.3,
+          0.5
+        ],
+        "allowanceUsdPerMonth": [
+          2,
+          5,
+          8
+        ]
+      },
+      "company": {
+        "storedGiB": [
+          5,
+          12.5,
+          20
+        ],
+        "queryTiBPerMonth": [
+          1,
+          3,
+          5
+        ],
+        "allowanceUsdPerMonth": [
+          10,
+          25,
+          40
+        ]
+      }
+    },
+    "B2": {
+      "lab": {
+        "storedGiB": [
+          5,
+          12.5,
+          20
+        ],
+        "queryTiBPerMonth": [
+          0.5,
+          1.25,
+          2
+        ],
+        "allowanceUsdPerMonth": [
+          5,
+          12.5,
+          20
+        ]
+      },
+      "company": {
+        "storedGiB": [
+          50,
+          150,
+          250
+        ],
+        "queryTiBPerMonth": [
+          5,
+          17.5,
+          30
+        ],
+        "allowanceUsdPerMonth": [
+          30,
+          90,
+          150
+        ]
+      }
+    }
+  },
+  "candidates": [
+    {
+      "id": "OPP-01",
+      "name": "Receivables follow-up exceptions",
+      "premise": "SCN-01",
+      "cloudProfile": "B1",
+      "benefitUsdPerYear": [
+        10000,
+        12000,
+        40000
+      ],
+      "benefitBasis": "Base: 5 hours/week x 48 weeks x $50, net of added business review effort. Low/high retain the original portfolio opportunity band as sensitivity hypotheses; actual realization can be zero.",
+      "source": {
+        "transactionRows": [
+          500000,
+          1250000,
+          2000000
+        ],
+        "extractedGiB": [
+          1,
+          3,
+          5
+        ],
+        "historyMonths": 24,
+        "eventGrowthPercentPerYear": [
+          5,
+          10,
+          15
+        ]
+      },
+      "developmentProfessionalDays": [
+        8,
+        11.5,
+        15
+      ],
+      "supportHoursPerMonth": [
+        2,
+        3,
+        4
+      ],
+      "sourceOwnerWaitWeeks": [
+        0.4,
+        2,
+        5
+      ],
+      "qualitative": {
+        "complexity": {
+          "scores": [
+            4,
+            4,
+            3
+          ],
+          "rationale": "ERP transaction family plus owner reference; payment/credit allocation and disputes prevent a single simple extract score of 5. High burden assumes material lifecycle reconciliation."
+        },
+        "data_readiness": {
+          "scores": [
+            4,
+            3,
+            2
+          ],
+          "rationale": "Low burden assumes stable exports/keys with bounded gaps; base assumes usable extracts but material balance/rule work; high burden assumes missing allocation/history/definitions. No representative company data exist; no score of 5."
+        },
+        "operational_risk": {
+          "scores": [
+            3,
+            3,
+            3
+          ],
+          "rationale": "Advisory collection priority can affect customer relationships; require independent invoice/balance review and retain native aging fallback in every profile."
+        },
+        "dependency_risk": {
+          "scores": [
+            4,
+            3,
+            2
+          ],
+          "rationale": "Low burden assumes one bounded ERP-owner confirmation; base a material export/finance-owner dependency with workbook fallback; high burden multiple uncertain export/definition owners. Actual GCP/Power BI access is separate Unknown."
+        }
+      },
+      "adverse": {
+        "benefitUsdPerYear": 6000,
+        "developmentProfessionalDays": 18.5,
+        "supportHoursPerMonth": 6,
+        "sourceOwnerWaitWeeks": 6.3,
+        "qualitative": {
+          "complexity": 3,
+          "data_readiness": 2,
+          "operational_risk": 3,
+          "dependency_risk": 2
+        },
+        "rationale": "Residual addressable AR gap is half SCN-01 while additional allocation/history remediation raises effort above the original range; this stresses, rather than amends, the adopted premise."
+      }
+    },
+    {
+      "id": "OPP-02",
+      "name": "Overdue purchase-order follow-up",
+      "premise": "SCN-02",
+      "cloudProfile": "B1",
+      "benefitUsdPerYear": [
+        15000,
+        19200,
+        60000
+      ],
+      "benefitBasis": "Base: 8 hours/week x 48 weeks x $50, net of added business review effort. Low/high retain the original portfolio opportunity band as sensitivity hypotheses; actual realization can be zero.",
+      "source": {
+        "transactionRows": [
+          300000,
+          900000,
+          1500000
+        ],
+        "extractedGiB": [
+          0.5,
+          1.75,
+          3
+        ],
+        "historyMonths": 24,
+        "eventGrowthPercentPerYear": [
+          5,
+          10,
+          15
+        ]
+      },
+      "developmentProfessionalDays": [
+        10,
+        14,
+        18
+      ],
+      "supportHoursPerMonth": [
+        3,
+        4.5,
+        6
+      ],
+      "sourceOwnerWaitWeeks": [
+        0.5,
+        2,
+        5
+      ],
+      "qualitative": {
+        "complexity": {
+          "scores": [
+            4,
+            4,
+            3
+          ],
+          "rationale": "One ERP family plus buyer reference; partial receipts, cancellations and promise revisions are bounded rules at base. High burden assumes material event/lifecycle reconciliation; no automated contact."
+        },
+        "data_readiness": {
+          "scores": [
+            4,
+            3,
+            2
+          ],
+          "rationale": "Low burden assumes stable PO/receipt/cancel keys with bounded gaps; base needs material definition/history work; high burden assumes missing promise/cancel history. Synthetic chronology does not establish company readiness."
+        },
+        "operational_risk": {
+          "scores": [
+            4,
+            4,
+            3
+          ],
+          "rationale": "Base is a manually checked follow-up queue with reversible low-impact supplier contact and native-line fallback; high burden represents consequential prioritization errors. No automatic purchase, expedite or supplier-performance decision."
+        },
+        "dependency_risk": {
+          "scores": [
+            4,
+            3,
+            2
+          ],
+          "rationale": "Low burden assumes one bounded ERP-owner confirmation; base one material export/reference-owner dependency with native alerts/workbook fallback; high burden multiple uncertain owners. Actual lab access is separate Unknown."
+        }
+      },
+      "adverse": {
+        "benefitUsdPerYear": 9600,
+        "developmentProfessionalDays": 24,
+        "supportHoursPerMonth": 9,
+        "sourceOwnerWaitWeeks": 6.2,
+        "qualitative": {
+          "complexity": 3,
+          "data_readiness": 2,
+          "operational_risk": 3,
+          "dependency_risk": 2
+        },
+        "rationale": "Residual addressable PO gap is half SCN-02 while cancellation/promise-history remediation expands effort; buyer activity remains manual and scope is not replaced by automation."
+      }
+    },
+    {
+      "id": "OPP-04",
+      "name": "Ship-by exception reporting",
+      "premise": "SCN-04",
+      "cloudProfile": "B2",
+      "benefitUsdPerYear": [
+        30000,
+        30000,
+        100000
+      ],
+      "benefitBasis": "Base: 3,000 addressable rework events/year x $10. Base equals the original portfolio lower endpoint; upper benefit requires stronger prevention/unit-value assumptions, not merely more generated late orders.",
+      "source": {
+        "transactionRows": [
+          8000000,
+          14000000,
+          20000000
+        ],
+        "extractedGiB": [
+          15,
+          32.5,
+          50
+        ],
+        "historyMonths": 12,
+        "eventGrowthPercentPerYear": [
+          10,
+          15,
+          20
+        ]
+      },
+      "developmentProfessionalDays": [
+        18,
+        24,
+        30
+      ],
+      "supportHoursPerMonth": [
+        6,
+        9,
+        12
+      ],
+      "sourceOwnerWaitWeeks": [
+        1,
+        4,
+        8
+      ],
+      "qualitative": {
+        "complexity": {
+          "scores": [
+            3,
+            3,
+            2
+          ],
+          "rationale": "OMS and WMS require an order-line/shipment bridge, splits, cutoffs and corrections; low/base two well-defined source families, high difficult state/semantics. The daily action window is preserved."
+        },
+        "data_readiness": {
+          "scores": [
+            3,
+            3,
+            2
+          ],
+          "rationale": "Even low workload retains material cross-system join/cutoff reconciliation; high burden assumes major key/history gaps. Plausibility is a fictional premise, not representative source evidence."
+        },
+        "operational_risk": {
+          "scores": [
+            3,
+            3,
+            2
+          ],
+          "rationale": "Reviewed daily expedites remain consequential operational decisions with native queues as fallback. High burden assumes a shorter recovery window and greater service exposure; no autonomous dispatch."
+        },
+        "dependency_risk": {
+          "scores": [
+            3,
+            2,
+            2
+          ],
+          "rationale": "Low burden assumes coordinated source owners and plausible fallback; base/high retain multiple uncertain OMS/WMS owners and cutoff dependencies. Platform access is separate Unknown."
+        }
+      },
+      "adverse": {
+        "benefitUsdPerYear": 15000,
+        "developmentProfessionalDays": 45,
+        "supportHoursPerMonth": 18,
+        "sourceOwnerWaitWeeks": 9,
+        "qualitative": {
+          "complexity": 2,
+          "data_readiness": 2,
+          "operational_risk": 2,
+          "dependency_risk": 2
+        },
+        "rationale": "Half the base addressable rework remains while split/correction reconciliation adds effort and support; the unchanged daily route still must have an actionable morning window."
+      }
+    }
+  ]
+}

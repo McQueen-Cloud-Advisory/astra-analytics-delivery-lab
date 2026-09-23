@@ -1,0 +1,19 @@
+{
+  "name": "astra-analytics-delivery-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check:docs": "node scripts/validate-docs.mjs",
+    "fixture": "node scripts/generate-po-fixture.mjs",
+    "pipeline": "node scripts/run-pipeline.mjs"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "9.1.0",
+    "google-auth-library": "11.1.0"
+  }
+}

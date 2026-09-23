@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "Context",
+  "position": {
+    "x": 24,
+    "y": 20,
+    "width": 1232,
+    "height": 155,
+    "z": 0,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "Batch ID"
+                }
+              },
+              "queryRef": "PoLines.Batch ID"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "Source as of UTC"
+                }
+              },
+              "queryRef": "PoLines.Source as of UTC"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "Imported UTC"
+                }
+              },
+              "queryRef": "PoLines.Imported UTC"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PoLines"
+                    }
+                  },
+                  "Property": "Snapshot state"
+                }
+              },
+              "queryRef": "PoLines.Snapshot state"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Synthetic proof only - batch and freshness'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

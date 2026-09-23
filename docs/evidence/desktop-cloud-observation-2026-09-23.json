@@ -1,0 +1,689 @@
+{
+  "observed_at_utc": "2026-09-23T02:35:33.487Z",
+  "quota_date": "2026-09-22",
+  "known_billed_bytes_today": 0,
+  "method": "Read-only jobs/datasets/tables API metadata; no query submitted",
+  "human_report": "There were no issues when when using the PBIP file either time.",
+  "human_confirmation": "Re-auth done and yes, the those values match.",
+  "named_datasets": [
+    "po_serving",
+    "po_work"
+  ],
+  "inventory": [
+    {
+      "dataset": "po_serving",
+      "table": "batch_manifest",
+      "location": "us-east4",
+      "rows": "1",
+      "logical_bytes": "302",
+      "expiry_time_ms": "1791253589341"
+    },
+    {
+      "dataset": "po_serving",
+      "table": "event_evidence",
+      "location": "us-east4",
+      "rows": "10",
+      "logical_bytes": "2415",
+      "expiry_time_ms": "1791253589341"
+    },
+    {
+      "dataset": "po_serving",
+      "table": "po_line_snapshot",
+      "location": "us-east4",
+      "rows": "10",
+      "logical_bytes": "3493",
+      "expiry_time_ms": "1791253589341"
+    },
+    {
+      "dataset": "po_work",
+      "table": "raw_event_versions",
+      "location": "us-east4",
+      "rows": "10",
+      "logical_bytes": "2876",
+      "expiry_time_ms": "1790648789341"
+    },
+    {
+      "dataset": "po_work",
+      "table": "raw_lines",
+      "location": "us-east4",
+      "rows": "10",
+      "logical_bytes": "3171",
+      "expiry_time_ms": "1790648789341"
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "job_1a192000_2675_45be_9c55_723e805d2208",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-23T02:29:49.034Z",
+      "ended_at_utc": "2026-09-23T02:29:49.180Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anond6858863fb12c4115dc0a5c446c5cc328e2f0c33a1f11779405469d76fed25a3"
+      },
+      "query_sha256": "991a7f460cd24c099c2aded2b49c054aea925b77273c2e461cf3ee35203e7920",
+      "reads_snapshot": true,
+      "reads_manifest": false,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_a74a2fdb_26e4_42e4_b04b_3058ff63b5fe",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-23T02:29:48.081Z",
+      "ended_at_utc": "2026-09-23T02:29:48.205Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anon5578bc39442a01ac025d9271463b69b50883563ce238af5a70dfd5f9161267d4"
+      },
+      "query_sha256": "53bc4b6a1785fa7c615e38091423f27a5e9bd95ee8b4a1a29182caf2e5c41da0",
+      "reads_snapshot": true,
+      "reads_manifest": false,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_06f280a8_4911_4629_9004_16ecdb378955",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-23T02:29:46.896Z",
+      "ended_at_utc": "2026-09-23T02:29:47.135Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anonfe4bd2b055aa4b912f418ef27fa70852cb878786d4335b61100d7f1b42aa6235"
+      },
+      "query_sha256": "297bb335d1d82e0906ecbd8fa4fb69bf8de0f49ce3fa8cf754e2bba69bbb9aad",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_97996229_d91a_4fd1_8f67_972644223831",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-23T02:29:45.892Z",
+      "ended_at_utc": "2026-09-23T02:29:46.033Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anond6db6dbb2e6840afdeff1c16ecacb1ce2810e449ae89a7e12ff4b5866f74640d"
+      },
+      "query_sha256": "80b63da6b7fd7370eb9d727b37572bcdf258f819b7f5dc148d5553e224829cb1",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_0af79b92_2337_41e4_9a50_552ba3eac320",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-23T02:29:44.384Z",
+      "ended_at_utc": "2026-09-23T02:29:44.545Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anond6858863fb12c4115dc0a5c446c5cc328e2f0c33a1f11779405469d76fed25a3"
+      },
+      "query_sha256": "991a7f460cd24c099c2aded2b49c054aea925b77273c2e461cf3ee35203e7920",
+      "reads_snapshot": true,
+      "reads_manifest": false,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_d4ec06eb_516e_4133_9973_892bc8b52000",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-23T02:29:43.101Z",
+      "ended_at_utc": "2026-09-23T02:29:43.268Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anon5578bc39442a01ac025d9271463b69b50883563ce238af5a70dfd5f9161267d4"
+      },
+      "query_sha256": "53bc4b6a1785fa7c615e38091423f27a5e9bd95ee8b4a1a29182caf2e5c41da0",
+      "reads_snapshot": true,
+      "reads_manifest": false,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_786a3b98_2c8b_47c3_9683_e3ae8df432cb",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-23T02:29:41.335Z",
+      "ended_at_utc": "2026-09-23T02:29:41.528Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anonfe4bd2b055aa4b912f418ef27fa70852cb878786d4335b61100d7f1b42aa6235"
+      },
+      "query_sha256": "297bb335d1d82e0906ecbd8fa4fb69bf8de0f49ce3fa8cf754e2bba69bbb9aad",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_e00b65c1_b158_48a1_afbc_fb455a43d0f1",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-23T02:29:39.465Z",
+      "ended_at_utc": "2026-09-23T02:29:39.666Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anond6db6dbb2e6840afdeff1c16ecacb1ce2810e449ae89a7e12ff4b5866f74640d"
+      },
+      "query_sha256": "80b63da6b7fd7370eb9d727b37572bcdf258f819b7f5dc148d5553e224829cb1",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_035d794e_0a77_4496_857b_7543cf8b05b2",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:22:11.447Z",
+      "ended_at_utc": "2026-09-22T04:22:11.592Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anond6858863fb12c4115dc0a5c446c5cc328e2f0c33a1f11779405469d76fed25a3"
+      },
+      "query_sha256": "991a7f460cd24c099c2aded2b49c054aea925b77273c2e461cf3ee35203e7920",
+      "reads_snapshot": true,
+      "reads_manifest": false,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_e0b1634f_1d66_40d0_b130_6438455bf9fe",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:22:10.406Z",
+      "ended_at_utc": "2026-09-22T04:22:10.500Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anon5578bc39442a01ac025d9271463b69b50883563ce238af5a70dfd5f9161267d4"
+      },
+      "query_sha256": "53bc4b6a1785fa7c615e38091423f27a5e9bd95ee8b4a1a29182caf2e5c41da0",
+      "reads_snapshot": true,
+      "reads_manifest": false,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_61ce9f84_b4d7_4467_a58e_4b1be495c099",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:22:09.223Z",
+      "ended_at_utc": "2026-09-22T04:22:09.423Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anonfe4bd2b055aa4b912f418ef27fa70852cb878786d4335b61100d7f1b42aa6235"
+      },
+      "query_sha256": "297bb335d1d82e0906ecbd8fa4fb69bf8de0f49ce3fa8cf754e2bba69bbb9aad",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_56d95a88_8dad_41af_a347_cc13c86d7155",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:22:07.957Z",
+      "ended_at_utc": "2026-09-22T04:22:08.100Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anond6db6dbb2e6840afdeff1c16ecacb1ce2810e449ae89a7e12ff4b5866f74640d"
+      },
+      "query_sha256": "80b63da6b7fd7370eb9d727b37572bcdf258f819b7f5dc148d5553e224829cb1",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_c7b951b1_627c_4141_8b7e_3d950dcb8d5b",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:21:37.740Z",
+      "ended_at_utc": "2026-09-22T04:21:38.028Z",
+      "job_type": "QUERY",
+      "billed_bytes": "10485760",
+      "processed_bytes": "1297",
+      "cache_hit": false,
+      "referenced_tables": [
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "po_line_snapshot"
+        }
+      ],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anond6858863fb12c4115dc0a5c446c5cc328e2f0c33a1f11779405469d76fed25a3"
+      },
+      "query_sha256": "991a7f460cd24c099c2aded2b49c054aea925b77273c2e461cf3ee35203e7920",
+      "reads_snapshot": true,
+      "reads_manifest": false,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_0bf3c3a3_eb53_49ab_b844_c83796a3cb72",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:21:36.482Z",
+      "ended_at_utc": "2026-09-22T04:21:36.689Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": false,
+      "referenced_tables": [
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "po_line_snapshot"
+        }
+      ],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anon5578bc39442a01ac025d9271463b69b50883563ce238af5a70dfd5f9161267d4"
+      },
+      "query_sha256": "53bc4b6a1785fa7c615e38091423f27a5e9bd95ee8b4a1a29182caf2e5c41da0",
+      "reads_snapshot": true,
+      "reads_manifest": false,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_86a51d13_ad21_49e3_a393_46482acbb0e0",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:21:35.315Z",
+      "ended_at_utc": "2026-09-22T04:21:35.474Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anonfe4bd2b055aa4b912f418ef27fa70852cb878786d4335b61100d7f1b42aa6235"
+      },
+      "query_sha256": "297bb335d1d82e0906ecbd8fa4fb69bf8de0f49ce3fa8cf754e2bba69bbb9aad",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_a5aad090_83e5_4b6a_87e8_7f02e37efa1d",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:21:34.214Z",
+      "ended_at_utc": "2026-09-22T04:21:34.385Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": true,
+      "referenced_tables": [],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anond6db6dbb2e6840afdeff1c16ecacb1ce2810e449ae89a7e12ff4b5866f74640d"
+      },
+      "query_sha256": "80b63da6b7fd7370eb9d727b37572bcdf258f819b7f5dc148d5553e224829cb1",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_e9fe5aae_cce8_4512_af95_70cd62ab06be",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:21:24.584Z",
+      "ended_at_utc": "2026-09-22T04:21:24.936Z",
+      "job_type": "QUERY",
+      "billed_bytes": "10485760",
+      "processed_bytes": "101",
+      "cache_hit": false,
+      "referenced_tables": [
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "batch_manifest"
+        }
+      ],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anonfe4bd2b055aa4b912f418ef27fa70852cb878786d4335b61100d7f1b42aa6235"
+      },
+      "query_sha256": "297bb335d1d82e0906ecbd8fa4fb69bf8de0f49ce3fa8cf754e2bba69bbb9aad",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "job_9cde3a4f_188f_43a1_ab66_a9f9cd98adc3",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "non_runtime_user",
+      "created_at_utc": "2026-09-22T04:21:21.669Z",
+      "ended_at_utc": "2026-09-22T04:21:22.615Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": false,
+      "referenced_tables": [
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "batch_manifest"
+        }
+      ],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_c1d204b32f0a4f9cc8408f22aa81c3d9d7bca965",
+        "tableId": "anond6db6dbb2e6840afdeff1c16ecacb1ce2810e449ae89a7e12ff4b5866f74640d"
+      },
+      "query_sha256": "80b63da6b7fd7370eb9d727b37572bcdf258f819b7f5dc148d5553e224829cb1",
+      "reads_snapshot": false,
+      "reads_manifest": true,
+      "mentions_ready_batch": true
+    },
+    {
+      "job_id": "po_read_after_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "pipeline_service_account",
+      "created_at_utc": "2026-09-22T02:36:18.786Z",
+      "ended_at_utc": "2026-09-22T02:36:19.159Z",
+      "job_type": "QUERY",
+      "billed_bytes": "31457280",
+      "processed_bytes": "6210",
+      "cache_hit": false,
+      "referenced_tables": [
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "event_evidence"
+        },
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "po_line_snapshot"
+        },
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "batch_manifest"
+        }
+      ],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_554e64002f62ae875e637b065d2c9ce21f869a76",
+        "tableId": "anone338ba78_7c3e_494c_884c_8a1ea3dc616f"
+      },
+      "query_sha256": "45589f992a71fb296b3c8a2102314a77311c3c3b1ca3510ec0210973a092d4fa",
+      "reads_snapshot": true,
+      "reads_manifest": true,
+      "mentions_ready_batch": false
+    },
+    {
+      "job_id": "po_publish_5f624cd96d7420ac70f1d04569c97efa_fec0e1cd22f1",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "pipeline_service_account",
+      "created_at_utc": "2026-09-22T02:36:12.613Z",
+      "ended_at_utc": "2026-09-22T02:36:17.835Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": null,
+      "referenced_tables": [],
+      "destination": null,
+      "query_sha256": "fec0e1cd22f119c961a3d5a0b877fc8430c22fe9922811ddd5515892b534a706",
+      "reads_snapshot": true,
+      "reads_manifest": true,
+      "mentions_ready_batch": false
+    },
+    {
+      "job_id": "po_transform_5f624cd96d7420ac70f1d04569c97efa_22152ebc8fd8_937a846714d24ecaa27a950c7dd8d4bd",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "pipeline_service_account",
+      "created_at_utc": "2026-09-22T02:36:10.609Z",
+      "ended_at_utc": "2026-09-22T02:36:11.422Z",
+      "job_type": "QUERY",
+      "billed_bytes": "20971520",
+      "processed_bytes": "2855",
+      "cache_hit": false,
+      "referenced_tables": [
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_work",
+          "tableId": "raw_event_versions"
+        },
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_work",
+          "tableId": "raw_lines"
+        }
+      ],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_554e64002f62ae875e637b065d2c9ce21f869a76",
+        "tableId": "anonb0f34835_e8a2_4815_b492_f7d21b34458b"
+      },
+      "query_sha256": "22152ebc8fd883f5185ee31305a5a7339250611957b6e8dcb441470715b104bb",
+      "reads_snapshot": false,
+      "reads_manifest": false,
+      "mentions_ready_batch": false
+    },
+    {
+      "job_id": "po_load_raw_event_versions_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "pipeline_service_account",
+      "created_at_utc": "2026-09-22T02:36:08.285Z",
+      "ended_at_utc": "2026-09-22T02:36:09.445Z",
+      "job_type": "LOAD",
+      "billed_bytes": null,
+      "processed_bytes": null,
+      "cache_hit": null,
+      "referenced_tables": [],
+      "destination": null,
+      "query_sha256": null,
+      "reads_snapshot": false,
+      "reads_manifest": false,
+      "mentions_ready_batch": false
+    },
+    {
+      "job_id": "po_load_raw_lines_5f624cd96d7420ac70f1d04569c97efa81697391353f6d45",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "pipeline_service_account",
+      "created_at_utc": "2026-09-22T02:36:06.072Z",
+      "ended_at_utc": "2026-09-22T02:36:07.085Z",
+      "job_type": "LOAD",
+      "billed_bytes": null,
+      "processed_bytes": null,
+      "cache_hit": null,
+      "referenced_tables": [],
+      "destination": null,
+      "query_sha256": null,
+      "reads_snapshot": false,
+      "reads_manifest": false,
+      "mentions_ready_batch": false
+    },
+    {
+      "job_id": "po_read_before_5f624cd96d7420ac70f1d04569c97efa_45589f992a71_937a846714d24ecaa27a950c7dd8d4bd",
+      "project": "astra-po-lab-20260921",
+      "location": "us-east4",
+      "state": "DONE",
+      "error_reason": null,
+      "identity_class": "pipeline_service_account",
+      "created_at_utc": "2026-09-22T02:36:04.478Z",
+      "ended_at_utc": "2026-09-22T02:36:04.756Z",
+      "job_type": "QUERY",
+      "billed_bytes": "0",
+      "processed_bytes": "0",
+      "cache_hit": false,
+      "referenced_tables": [
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "batch_manifest"
+        },
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "event_evidence"
+        },
+        {
+          "projectId": "astra-po-lab-20260921",
+          "datasetId": "po_serving",
+          "tableId": "po_line_snapshot"
+        }
+      ],
+      "destination": {
+        "projectId": "astra-po-lab-20260921",
+        "datasetId": "_554e64002f62ae875e637b065d2c9ce21f869a76",
+        "tableId": "anonc3e1720b_55c9_4a1f_849c_6b2f3865e3a8"
+      },
+      "query_sha256": "45589f992a71fb296b3c8a2102314a77311c3c3b1ca3510ec0210973a092d4fa",
+      "reads_snapshot": true,
+      "reads_manifest": true,
+      "mentions_ready_batch": false
+    }
+  ],
+  "jobs_since_last_observation": 18,
+  "limitations": "Query jobs are not a one-to-one count of Desktop refreshes. Named dataset list excludes managed anonymous query caches. No account identifiers or raw SDK errors retained."
+}

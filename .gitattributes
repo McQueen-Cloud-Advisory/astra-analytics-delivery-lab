@@ -1,0 +1,10 @@
+# Evidence identifies exact bytes. Preserve them across Windows/Linux checkouts.
+# The fixture-specific rules retain their explicitly defined LF source format.
+* -text whitespace=cr-at-eol
+LICENSE text eol=lf
+.gitignore text eol=lf
+README.md text eol=lf
+# Markdown hard breaks and historical evidence retain intentional end spaces.
+*.md whitespace=-blank-at-eol,cr-at-eol
+# Desktop emits a terminal blank line in valid TMDL source.
+*.tmdl whitespace=-blank-at-eof,cr-at-eol

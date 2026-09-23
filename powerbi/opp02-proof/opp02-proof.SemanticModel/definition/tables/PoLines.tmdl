@@ -1,0 +1,125 @@
+/// Minimal first-slice Import proof. All quantities are synthetic EA; values are exposure, not savings.
+table PoLines
+	lineageTag: 896fdd48-3ede-4390-ae74-b4ebbd931e5a
+
+	measure 'Batch ID' = CALCULATE(SELECTEDVALUE(PoLines[batch_id], "Invalid batch selection"), REMOVEFILTERS(PoLines))
+		lineageTag: c5f68429-cc91-46eb-9a75-f67df988b8f4
+
+	measure 'Source as of UTC' = FORMAT(CALCULATE(MAX(PoLines[business_as_of]), REMOVEFILTERS(PoLines)), "yyyy-MM-dd HH:mm:ss") & "Z"
+		lineageTag: 8b0e7d99-bb0a-47c3-8261-174852bb4d86
+
+	measure 'Imported UTC' = FORMAT(CALCULATE(MAX(PoLines[imported_at_utc]), REMOVEFILTERS(PoLines)), "yyyy-MM-dd HH:mm:ss") & "Z"
+		lineageTag: 05b7bac4-cefb-411a-9b77-7a0a5e6e2ced
+
+	measure 'Snapshot state' =
+			VAR AsOfUtc = CALCULATE(MAX(PoLines[business_as_of]), REMOVEFILTERS(PoLines))
+			VAR BatchCount = CALCULATE(DISTINCTCOUNT(PoLines[batch_id]), REMOVEFILTERS(PoLines))
+			RETURN IF(BatchCount <> 1 || ISBLANK(AsOfUtc), "Invalid batch selection", IF(UTCNOW() < AsOfUtc, "Invalid clock context", IF(UTCNOW() - AsOfUtc > 1, "Stale synthetic snapshot", "Synthetic snapshot within 24h")))
+		lineageTag: 67ece5c8-e232-41cd-bbb2-6d4176277b93
+
+	measure 'Remaining quantity' = IF([Snapshot state] IN {"Invalid batch selection", "Invalid clock context"}, BLANK(), COALESCE(SUM(PoLines[remaining_qty]), 0))
+		formatString: #,0
+		lineageTag: 948440cb-27d0-4156-9e91-cd778a7d17e5
+
+	measure 'Overdue value USD' = IF([Snapshot state] IN {"Invalid batch selection", "Invalid clock context"}, BLANK(), CURRENCY(DIVIDE(COALESCE(SUM(PoLines[overdue_value_cents]), 0), 100)))
+		formatString: $#,0.00
+		lineageTag: a9b001ba-44f6-4918-9253-07d805ed84bb
+
+	measure 'Line count' = IF([Snapshot state] IN {"Invalid batch selection", "Invalid clock context"}, BLANK(), COALESCE(DISTINCTCOUNT(PoLines[line_id]), 0))
+		formatString: #,0
+		lineageTag: 751aeb5e-f159-49b6-a2c4-b1ca470a6f50
+
+	column batch_id
+		dataType: string
+		isHidden
+		lineageTag: 43e0cbe2-f373-4035-8431-2029b9efdece
+		summarizeBy: none
+		sourceColumn: batch_id
+
+	column line_id
+		dataType: string
+		lineageTag: cda30172-cff2-481a-aef0-c4d27533e4e2
+		summarizeBy: none
+		sourceColumn: line_id
+
+	column supplier_id
+		dataType: string
+		lineageTag: 1f18d65d-cfb4-4c65-92c8-16f1f86ff120
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+	column closure_status
+		dataType: string
+		lineageTag: d78f5d31-d2e7-4d7e-9bf0-d0f2f9afa9eb
+		summarizeBy: none
+		sourceColumn: closure_status
+
+	column is_overdue
+		dataType: boolean
+		lineageTag: 117bd3ad-e2f4-4a9e-b8e2-68d6a2756dd8
+		summarizeBy: none
+		sourceColumn: is_overdue
+
+	column remaining_qty
+		dataType: int64
+		isHidden
+		lineageTag: 6f1044c5-6e24-4af3-87a5-3db863e65bc8
+		summarizeBy: none
+		sourceColumn: remaining_qty
+
+	column overdue_value_cents
+		dataType: int64
+		isHidden
+		lineageTag: 1b91864a-ad5b-4fb6-91ca-58370331cb85
+		summarizeBy: none
+		sourceColumn: overdue_value_cents
+
+	column business_as_of
+		dataType: dateTime
+		isHidden
+		lineageTag: 0d5e8aee-561b-45bd-b443-3551a590e8b2
+		summarizeBy: none
+		sourceColumn: business_as_of
+
+	column knowledge_cutoff
+		dataType: dateTime
+		isHidden
+		lineageTag: a0dac1ba-bde7-4044-b45d-b20c2a182851
+		summarizeBy: none
+		sourceColumn: knowledge_cutoff
+
+	column published_at
+		dataType: dateTime
+		isHidden
+		lineageTag: 0ee742d1-ef6c-4056-8462-000d67255606
+		summarizeBy: none
+		sourceColumn: published_at
+
+	column imported_at_utc
+		dataType: dateTime
+		isHidden
+		lineageTag: 5f644e39-5966-45a5-a24a-ddf85e63056d
+		summarizeBy: none
+		sourceColumn: imported_at_utc
+
+	partition PoLines = m
+		mode: import
+		source =
+				let
+				    BatchId = if pBatchId = "SET_READY_BATCH_ID" or Text.Length(pBatchId) = 0 or Text.Length(pBatchId) > 128 or Text.Select(pBatchId, {"A".."Z", "a".."z", "0".."9", "_", "-"}) <> pBatchId then error "Bind a valid, independently verified ready batch ID before refreshing." else pBatchId,
+				    Source = if Text.Length(BatchId) > 0 then GoogleBigQuery.Database([BillingProject = "astra-po-lab-20260921", Implementation = "2.0", UseStorageApi = true]) else error "Missing batch.",
+				    Project = Source{[Name = "astra-po-lab-20260921"]}[Data],
+				    Manifest = Table.Buffer(Value.NativeQuery(Project, "SELECT batch_id, status, validation_result, fixture_id, published_line_count FROM `astra-po-lab-20260921.po_serving.batch_manifest` WHERE batch_id = '" & BatchId & "'", null, [EnableFolding = true])),
+				    Ready = if Table.RowCount(Manifest) <> 1 then error "Invalid batch selection: exactly one manifest is required." else if Manifest{0}[status] <> "READY" or Manifest{0}[validation_result] <> "PASS" or Manifest{0}[fixture_id] <> "FIX-01" or Manifest{0}[published_line_count] <> 10 then error "The first proof requires the independently verified ten-line FIX-01 ready batch." else true,
+				    Rows = if Ready then Table.Buffer(Value.NativeQuery(Project, "SELECT batch_id, line_id, supplier_id, closure_status, is_overdue, remaining_qty, overdue_value_cents, business_as_of, knowledge_cutoff, published_at FROM `astra-po-lab-20260921.po_serving.po_line_snapshot` WHERE batch_id = '" & BatchId & "'", null, [EnableFolding = true])) else error "Batch is not ready.",
+				    Checked = if Table.RowCount(Rows) <> Manifest{0}[published_line_count] or Table.RowCount(Table.Distinct(Rows, {"line_id"})) <> Table.RowCount(Rows) then error "Snapshot/manifest count or line-key mismatch." else Rows,
+				    Typed = Table.TransformColumnTypes(Checked, {{"batch_id", type text}, {"line_id", type text}, {"supplier_id", type text}, {"closure_status", type text}, {"is_overdue", type logical}, {"remaining_qty", Int64.Type}, {"overdue_value_cents", Int64.Type}}),
+				    UtcTimes = Table.TransformColumns(Typed, List.Transform({"business_as_of", "knowledge_cutoff", "published_at"}, (ColumnName) => {ColumnName, (Stamp) => if Value.Is(Stamp, type datetimezone) then DateTimeZone.RemoveZone(DateTimeZone.SwitchZone(Stamp, 0)) else DateTime.From(Stamp), type datetime})),
+				    WithImportTime = Table.AddColumn(UtcTimes, "imported_at_utc", each DateTimeZone.RemoveZone(DateTimeZone.FixedUtcNow()), type datetime)
+				in
+				    WithImportTime
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

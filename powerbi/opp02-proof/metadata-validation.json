@@ -1,0 +1,70 @@
+{
+  "checked_at": "2026-09-22T02:17:00.048Z",
+  "method": "Ajv 8.17.1 / ajv-formats 3.0.1 against public Microsoft JSON schemas",
+  "json_schema_checks": [
+    {
+      "path": "opp02-proof.pbip",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/pbip/pbipProperties/1.0.0/schema.json",
+      "sha256": "1e211d764b74d1281a2ec31468665026c6a763c2be68dccb8639f96ee2ec3c7d",
+      "result": "PASS"
+    },
+    {
+      "path": "opp02-proof.Report/definition/pages/pages.json",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+      "sha256": "07bc40f060ab60abc122e5e03c5ca18a719bcd6bfeb1113d29023fdd7bb64546",
+      "result": "PASS"
+    },
+    {
+      "path": "opp02-proof.Report/definition/pages/Proof/page.json",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+      "sha256": "4188b937e3e4de22e03adc7db22cc5a3ab56de7b721f5bdfdf609c31d2c47810",
+      "result": "PASS"
+    },
+    {
+      "path": "opp02-proof.Report/definition/pages/Proof/visuals/Context/visual.json",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+      "sha256": "76461e60e99a8e335f84e21f48f827607d7fd81da2a9d4cc75017bea58c23092",
+      "result": "PASS"
+    },
+    {
+      "path": "opp02-proof.Report/definition/pages/Proof/visuals/Lines/visual.json",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+      "sha256": "d4f0e57554b8dbcaa2cadbc116b8a94602e4f9cde85f499b5191cc3e35a93c88",
+      "result": "PASS"
+    },
+    {
+      "path": "opp02-proof.Report/definition/pages/Proof/visuals/Totals/visual.json",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+      "sha256": "f5808851970f506d169c67c54bd1069fe0e8bafd68c4a8a0c01c04cb152183e6",
+      "result": "PASS"
+    },
+    {
+      "path": "opp02-proof.Report/definition/report.json",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+      "sha256": "bfecba178594174f44cea379018041ed6e61d1a8416c0f7a42e3f84319d84897",
+      "result": "PASS"
+    },
+    {
+      "path": "opp02-proof.Report/definition/version.json",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/versionMetadata/1.0.0/schema.json",
+      "sha256": "0f9f217a60981bf882d7b1963977fc72cc051078df8512b46caa607aff2e5220",
+      "result": "PASS"
+    },
+    {
+      "path": "opp02-proof.Report/definition.pbir",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
+      "sha256": "10a054659c90909a24e7e928bfb7786f19e731b5cd0612bdb07113938063b5ce",
+      "result": "PASS"
+    },
+    {
+      "path": "opp02-proof.SemanticModel/definition.pbism",
+      "schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json",
+      "sha256": "a1133b18a3ba9daa65d98d300f00cfbc1e9dc35c05ef73fe5aceadd885ecb888",
+      "result": "PASS"
+    }
+  ],
+  "limitations": [
+    "TMDL, M and DAX have not been parsed or executed by Power BI Desktop.",
+    "No BigQuery queries, refresh, render, save/reopen or human verification executed."
+  ]
+}

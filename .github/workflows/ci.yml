@@ -1,0 +1,42 @@
+name: Local validation
+
+on:
+  push:
+    branches: [main, 'codex/**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: local-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24.15.0'
+          package-manager-cache: false
+      - name: Install locked dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Unit and fixture tests
+        run: node --test
+      - name: Documentation structure
+        run: node scripts/validate-docs.mjs
+      - name: Bounded local secret-pattern check
+        run: node scripts/check-secrets.mjs
+      - name: Power BI source metadata
+        run: node powerbi/opp02-proof/validate-metadata.mjs
+      - name: Local pipeline plan
+        run: node scripts/run-pipeline.mjs --plan
+
+# No GCP credentials, cloud execution, publication or deployment in this workflow.
+# The separately requested npm advisory audit remains pending authorization.

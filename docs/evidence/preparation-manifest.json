@@ -1,0 +1,23 @@
+{
+    "run_id":  "HDG-20260920-01",
+    "recorded_at_utc":  "2026-09-21T00:54:56Z",
+    "scope":  "Preparation and Phase 1; no gate approval or platform validation",
+    "artifacts":  [
+                      {
+                          "path":  "prompts/astra-analytics-delivery-master-prompt.md",
+                          "sha256":  "62B17009EBF408664AFEFCEC08AE93F5CF0AC4873FD2A2AB7E19C7CEEA3BA2FA"
+                      },
+                      {
+                          "path":  "docs/portfolio/opportunity-portfolio.md",
+                          "sha256":  "E26D07F950D206E1A81571675E535D49044D193D6D3ECD55EC49CCA7F73404F6"
+                      },
+                      {
+                          "path":  "docs/gates/gate-1-portfolio-review.md",
+                          "sha256":  "EB7F4A1ACBABB11E32D96D9523FA53D353C7572016BB3A94902791916D6DFB5D"
+                      },
+                      {
+                          "path":  "scripts/validate-docs.mjs",
+                          "sha256":  "F3C84DE6FDF04EA535A4B326FC277993BACB028036EC69DA652184EF4879A71A"
+                      }
+                  ]
+}

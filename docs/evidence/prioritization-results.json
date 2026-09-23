@@ -1,0 +1,3901 @@
+{
+  "artifactVersion": "1.0",
+  "runId": "HDG-20260920-01",
+  "evidenceClass": "Observed local calculation from low-confidence fictional assumptions; not platform validation or business outcome evidence.",
+  "command": "node scripts/calculate-prioritization.mjs --write",
+  "sourceSha256": {
+    "docs/portfolio/prioritization-inputs.json": "7bda7dd01878642a4162a82556a0db341ba8f3b2e3fbaf4f16b7b9d3b34b4374",
+    "scripts/calculate-prioritization.mjs": "3feafcaf0f5314c568ce156672cf35a3e723c8f12eef452ce5188ff77f7988e5",
+    "docs/gates/gate-1-framework-v1.0-submitted.md": "eb7f4a1acbabb11e32d96d9523fa53d353c7572016bb3a94902791916d6dfb5d",
+    "docs/gates/gate-2-package-v1.0-submitted.md": "c9fb7ca53c53bb54551f826e87ec646da03bf93d084bf801e8bcfe135871e52a",
+    "docs/portfolio/opportunity-portfolio.md": "e26d07f950d206e1a81571675e535d49044d193d6d3ecd55ec49cca7f73404f6"
+  },
+  "criteriaOrder": [
+    "business_value",
+    "complexity",
+    "development_cost",
+    "maintenance_cost",
+    "time_to_value",
+    "data_readiness",
+    "operational_risk",
+    "dependency_risk"
+  ],
+  "base": {
+    "name": "approved_weights_base_inputs",
+    "weightsPercent": {
+      "business_value": 20,
+      "complexity": 20,
+      "development_cost": 15,
+      "maintenance_cost": 20,
+      "time_to_value": 5,
+      "data_readiness": 10,
+      "operational_risk": 5,
+      "dependency_risk": 5
+    },
+    "candidates": [
+      {
+        "id": "OPP-01",
+        "scores": {
+          "business_value": 3,
+          "complexity": 4,
+          "development_cost": 5,
+          "maintenance_cost": 5,
+          "time_to_value": 4,
+          "data_readiness": 3,
+          "operational_risk": 3,
+          "dependency_risk": 3
+        },
+        "weightedScore": "4.0",
+        "eligibleOnScenarioValue": true
+      },
+      {
+        "id": "OPP-02",
+        "scores": {
+          "business_value": 3,
+          "complexity": 4,
+          "development_cost": 4,
+          "maintenance_cost": 5,
+          "time_to_value": 4,
+          "data_readiness": 3,
+          "operational_risk": 4,
+          "dependency_risk": 3
+        },
+        "weightedScore": "3.9",
+        "eligibleOnScenarioValue": true
+      },
+      {
+        "id": "OPP-04",
+        "scores": {
+          "business_value": 3,
+          "complexity": 3,
+          "development_cost": 4,
+          "maintenance_cost": 4,
+          "time_to_value": 3,
+          "data_readiness": 3,
+          "operational_risk": 3,
+          "dependency_risk": 2
+        },
+        "weightedScore": "3.3",
+        "eligibleOnScenarioValue": true
+      }
+    ],
+    "arithmeticLeaders": [
+      "OPP-01"
+    ],
+    "preferredSetWithinPointTwo": [
+      "OPP-01",
+      "OPP-02"
+    ],
+    "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+  },
+  "weightSensitivity": [
+    {
+      "name": "business_value_minus_5",
+      "weightsPercent": {
+        "business_value": 15,
+        "complexity": 21.25,
+        "development_cost": 15.9375,
+        "maintenance_cost": 21.25,
+        "time_to_value": 5.3125,
+        "data_readiness": 10.625,
+        "operational_risk": 5.3125,
+        "dependency_risk": 5.3125
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "business_value_plus_5",
+      "weightsPercent": {
+        "business_value": 25,
+        "complexity": 18.75,
+        "development_cost": 14.0625,
+        "maintenance_cost": 18.75,
+        "time_to_value": 4.6875,
+        "data_readiness": 9.375,
+        "operational_risk": 4.6875,
+        "dependency_risk": 4.6875
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "complexity_minus_5",
+      "weightsPercent": {
+        "business_value": 21.25,
+        "complexity": 15,
+        "development_cost": 15.9375,
+        "maintenance_cost": 21.25,
+        "time_to_value": 5.3125,
+        "data_readiness": 10.625,
+        "operational_risk": 5.3125,
+        "dependency_risk": 5.3125
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "complexity_plus_5",
+      "weightsPercent": {
+        "business_value": 18.75,
+        "complexity": 25,
+        "development_cost": 14.0625,
+        "maintenance_cost": 18.75,
+        "time_to_value": 4.6875,
+        "data_readiness": 9.375,
+        "operational_risk": 4.6875,
+        "dependency_risk": 4.6875
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "development_cost_minus_5",
+      "weightsPercent": {
+        "business_value": 21.176470588235293,
+        "complexity": 21.176470588235293,
+        "development_cost": 10,
+        "maintenance_cost": 21.176470588235293,
+        "time_to_value": 5.294117647058823,
+        "data_readiness": 10.588235294117647,
+        "operational_risk": 5.294117647058823,
+        "dependency_risk": 5.294117647058823
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "development_cost_plus_5",
+      "weightsPercent": {
+        "business_value": 18.823529411764707,
+        "complexity": 18.823529411764707,
+        "development_cost": 20,
+        "maintenance_cost": 18.823529411764707,
+        "time_to_value": 4.705882352941177,
+        "data_readiness": 9.411764705882353,
+        "operational_risk": 4.705882352941177,
+        "dependency_risk": 4.705882352941177
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "maintenance_cost_minus_5",
+      "weightsPercent": {
+        "business_value": 21.25,
+        "complexity": 21.25,
+        "development_cost": 15.9375,
+        "maintenance_cost": 15,
+        "time_to_value": 5.3125,
+        "data_readiness": 10.625,
+        "operational_risk": 5.3125,
+        "dependency_risk": 5.3125
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "maintenance_cost_plus_5",
+      "weightsPercent": {
+        "business_value": 18.75,
+        "complexity": 18.75,
+        "development_cost": 14.0625,
+        "maintenance_cost": 25,
+        "time_to_value": 4.6875,
+        "data_readiness": 9.375,
+        "operational_risk": 4.6875,
+        "dependency_risk": 4.6875
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "time_to_value_minus_5",
+      "weightsPercent": {
+        "business_value": 21.052631578947366,
+        "complexity": 21.052631578947366,
+        "development_cost": 15.789473684210526,
+        "maintenance_cost": 21.052631578947366,
+        "time_to_value": 0,
+        "data_readiness": 10.526315789473683,
+        "operational_risk": 5.263157894736842,
+        "dependency_risk": 5.263157894736842
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "time_to_value_plus_5",
+      "weightsPercent": {
+        "business_value": 18.94736842105263,
+        "complexity": 18.94736842105263,
+        "development_cost": 14.210526315789473,
+        "maintenance_cost": 18.94736842105263,
+        "time_to_value": 10,
+        "data_readiness": 9.473684210526315,
+        "operational_risk": 4.7368421052631575,
+        "dependency_risk": 4.7368421052631575
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "data_readiness_minus_5",
+      "weightsPercent": {
+        "business_value": 21.11111111111111,
+        "complexity": 21.11111111111111,
+        "development_cost": 15.833333333333334,
+        "maintenance_cost": 21.11111111111111,
+        "time_to_value": 5.277777777777778,
+        "data_readiness": 5,
+        "operational_risk": 5.277777777777778,
+        "dependency_risk": 5.277777777777778
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "data_readiness_plus_5",
+      "weightsPercent": {
+        "business_value": 18.88888888888889,
+        "complexity": 18.88888888888889,
+        "development_cost": 14.166666666666666,
+        "maintenance_cost": 18.88888888888889,
+        "time_to_value": 4.722222222222222,
+        "data_readiness": 15,
+        "operational_risk": 4.722222222222222,
+        "dependency_risk": 4.722222222222222
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "operational_risk_minus_5",
+      "weightsPercent": {
+        "business_value": 21.052631578947366,
+        "complexity": 21.052631578947366,
+        "development_cost": 15.789473684210526,
+        "maintenance_cost": 21.052631578947366,
+        "time_to_value": 5.263157894736842,
+        "data_readiness": 10.526315789473683,
+        "operational_risk": 0,
+        "dependency_risk": 5.263157894736842
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "operational_risk_plus_5",
+      "weightsPercent": {
+        "business_value": 18.94736842105263,
+        "complexity": 18.94736842105263,
+        "development_cost": 14.210526315789473,
+        "maintenance_cost": 18.94736842105263,
+        "time_to_value": 4.7368421052631575,
+        "data_readiness": 9.473684210526315,
+        "operational_risk": 10,
+        "dependency_risk": 4.7368421052631575
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "dependency_risk_minus_5",
+      "weightsPercent": {
+        "business_value": 21.052631578947366,
+        "complexity": 21.052631578947366,
+        "development_cost": 15.789473684210526,
+        "maintenance_cost": 21.052631578947366,
+        "time_to_value": 5.263157894736842,
+        "data_readiness": 10.526315789473683,
+        "operational_risk": 5.263157894736842,
+        "dependency_risk": 0
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.4",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "dependency_risk_plus_5",
+      "weightsPercent": {
+        "business_value": 18.94736842105263,
+        "complexity": 18.94736842105263,
+        "development_cost": 14.210526315789473,
+        "maintenance_cost": 18.94736842105263,
+        "time_to_value": 4.7368421052631575,
+        "data_readiness": 9.473684210526315,
+        "operational_risk": 4.7368421052631575,
+        "dependency_risk": 10
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.2",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    }
+  ],
+  "fullWeightScenarios": [
+    {
+      "name": "ownership_first",
+      "weightsPercent": {
+        "business_value": 15,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 30,
+        "time_to_value": 5,
+        "data_readiness": 5,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.2",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.1",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.4",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "value_first",
+      "weightsPercent": {
+        "business_value": 35,
+        "complexity": 15,
+        "development_cost": 10,
+        "maintenance_cost": 15,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.7",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.7",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.2",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    }
+  ],
+  "redundancySensitivity": [
+    {
+      "name": "complexity_zero",
+      "weightsPercent": {
+        "business_value": 25,
+        "complexity": 0,
+        "development_cost": 18.75,
+        "maintenance_cost": 25,
+        "time_to_value": 6.25,
+        "data_readiness": 12.5,
+        "operational_risk": 6.25,
+        "dependency_risk": 6.25
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.4",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "development_cost_zero",
+      "weightsPercent": {
+        "business_value": 23.529411764705884,
+        "complexity": 23.529411764705884,
+        "development_cost": 0,
+        "maintenance_cost": 23.529411764705884,
+        "time_to_value": 5.882352941176471,
+        "data_readiness": 11.764705882352942,
+        "operational_risk": 5.882352941176471,
+        "dependency_risk": 5.882352941176471
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.2",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-02"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "time_to_value_zero",
+      "weightsPercent": {
+        "business_value": 21.052631578947366,
+        "complexity": 21.052631578947366,
+        "development_cost": 15.789473684210526,
+        "maintenance_cost": 21.052631578947366,
+        "time_to_value": 0,
+        "data_readiness": 10.526315789473683,
+        "operational_risk": 5.263157894736842,
+        "dependency_risk": 5.263157894736842
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    }
+  ],
+  "estimateSensitivity": [
+    {
+      "name": "low_inputs",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 5,
+            "data_readiness": 4,
+            "operational_risk": 3,
+            "dependency_risk": 4
+          },
+          "weightedScore": "4.2",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 5,
+            "data_readiness": 4,
+            "operational_risk": 4,
+            "dependency_risk": 4
+          },
+          "weightedScore": "4.2",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.6",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-02"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "base_inputs",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "high_inputs",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 3,
+            "data_readiness": 2,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.4",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 4,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 3,
+            "data_readiness": 2,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.6",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 4,
+            "complexity": 2,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 2,
+            "data_readiness": 2,
+            "operational_risk": 2,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.1",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-02"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    }
+  ],
+  "oneCriterionAtATimeSensitivity": [
+    {
+      "name": "OPP-01_complexity_score_3_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-02"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-01_development_cost_score_4_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-02"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-01_time_to_value_score_3_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-01_time_to_value_score_5_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 5,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-01_data_readiness_score_2_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 2,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-01_data_readiness_score_4_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 4,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.1",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-01_dependency_risk_score_2_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-01_dependency_risk_score_4_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 4
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_business_value_score_4_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 4,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.1",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-02"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_complexity_score_3_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.7",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_development_cost_score_5_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-02"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_time_to_value_score_3_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_time_to_value_score_5_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 5,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_data_readiness_score_2_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 2,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_data_readiness_score_4_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 4,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_operational_risk_score_3_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_dependency_risk_score_2_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.8",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-02_dependency_risk_score_4_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 4
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-04_business_value_score_4_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 4,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.5",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-04_complexity_score_2_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 2,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.1",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-04_maintenance_cost_score_5_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.5",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-04_time_to_value_score_2_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 2,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-04_time_to_value_score_4_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.4",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-04_data_readiness_score_2_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 2,
+            "operational_risk": 3,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.2",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-04_operational_risk_score_2_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 2,
+            "dependency_risk": 2
+          },
+          "weightedScore": "3.3",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    },
+    {
+      "name": "OPP-04_dependency_risk_score_3_others_base",
+      "weightsPercent": {
+        "business_value": 20,
+        "complexity": 20,
+        "development_cost": 15,
+        "maintenance_cost": 20,
+        "time_to_value": 5,
+        "data_readiness": 10,
+        "operational_risk": 5,
+        "dependency_risk": 5
+      },
+      "candidates": [
+        {
+          "id": "OPP-01",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 5,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "4.0",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-02",
+          "scores": {
+            "business_value": 3,
+            "complexity": 4,
+            "development_cost": 4,
+            "maintenance_cost": 5,
+            "time_to_value": 4,
+            "data_readiness": 3,
+            "operational_risk": 4,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.9",
+          "eligibleOnScenarioValue": true
+        },
+        {
+          "id": "OPP-04",
+          "scores": {
+            "business_value": 3,
+            "complexity": 3,
+            "development_cost": 4,
+            "maintenance_cost": 4,
+            "time_to_value": 3,
+            "data_readiness": 3,
+            "operational_risk": 3,
+            "dependency_risk": 3
+          },
+          "weightedScore": "3.4",
+          "eligibleOnScenarioValue": true
+        }
+      ],
+      "arithmeticLeaders": [
+        "OPP-01"
+      ],
+      "preferredSetWithinPointTwo": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+    }
+  ],
+  "uncertaintyEnvelopes": [
+    {
+      "id": "OPP-01",
+      "low": "3.4",
+      "high": "4.2",
+      "lowScores": [
+        3,
+        3,
+        4,
+        5,
+        3,
+        2,
+        3,
+        2
+      ],
+      "highScores": [
+        3,
+        4,
+        5,
+        5,
+        5,
+        4,
+        3,
+        4
+      ],
+      "interpretation": "Independent bound only, not a forecast or assumption that favorable inputs co-occur."
+    },
+    {
+      "id": "OPP-02",
+      "low": "3.4",
+      "high": "4.4",
+      "lowScores": [
+        3,
+        3,
+        4,
+        5,
+        3,
+        2,
+        3,
+        2
+      ],
+      "highScores": [
+        4,
+        4,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4
+      ],
+      "interpretation": "Independent bound only, not a forecast or assumption that favorable inputs co-occur."
+    },
+    {
+      "id": "OPP-04",
+      "low": "2.9",
+      "high": "3.8",
+      "lowScores": [
+        3,
+        2,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2
+      ],
+      "highScores": [
+        4,
+        3,
+        4,
+        5,
+        4,
+        3,
+        3,
+        3
+      ],
+      "interpretation": "Independent bound only, not a forecast or assumption that favorable inputs co-occur."
+    }
+  ],
+  "uncertaintyOverlap": [
+    {
+      "pair": [
+        "OPP-01",
+        "OPP-02"
+      ],
+      "overlap": true,
+      "overlapWidth": "0.8"
+    },
+    {
+      "pair": [
+        "OPP-01",
+        "OPP-04"
+      ],
+      "overlap": true,
+      "overlapWidth": "0.4"
+    },
+    {
+      "pair": [
+        "OPP-02",
+        "OPP-04"
+      ],
+      "overlap": true,
+      "overlapWidth": "0.4"
+    }
+  ],
+  "adverseCase": {
+    "name": "lower_addressable_benefit_plus_remediation",
+    "weightsPercent": {
+      "business_value": 20,
+      "complexity": 20,
+      "development_cost": 15,
+      "maintenance_cost": 20,
+      "time_to_value": 5,
+      "data_readiness": 10,
+      "operational_risk": 5,
+      "dependency_risk": 5
+    },
+    "candidates": [
+      {
+        "id": "OPP-01",
+        "scores": {
+          "business_value": 2,
+          "complexity": 3,
+          "development_cost": 4,
+          "maintenance_cost": 5,
+          "time_to_value": 3,
+          "data_readiness": 2,
+          "operational_risk": 3,
+          "dependency_risk": 2
+        },
+        "weightedScore": "3.2",
+        "eligibleOnScenarioValue": false
+      },
+      {
+        "id": "OPP-02",
+        "scores": {
+          "business_value": 2,
+          "complexity": 3,
+          "development_cost": 4,
+          "maintenance_cost": 4,
+          "time_to_value": 3,
+          "data_readiness": 2,
+          "operational_risk": 3,
+          "dependency_risk": 2
+        },
+        "weightedScore": "3.0",
+        "eligibleOnScenarioValue": false
+      },
+      {
+        "id": "OPP-04",
+        "scores": {
+          "business_value": 3,
+          "complexity": 2,
+          "development_cost": 3,
+          "maintenance_cost": 3,
+          "time_to_value": 2,
+          "data_readiness": 2,
+          "operational_risk": 2,
+          "dependency_risk": 2
+        },
+        "weightedScore": "2.6",
+        "eligibleOnScenarioValue": true
+      }
+    ],
+    "arithmeticLeaders": [
+      "OPP-04"
+    ],
+    "preferredSetWithinPointTwo": [
+      "OPP-04"
+    ],
+    "interpretation": "Scenario arithmetic only; eligibility does not close actual lab feasibility, excluded costs or uncertainty-overlap conditions."
+  },
+  "companyBenchmarks": {
+    "low": [
+      {
+        "id": "OPP-01",
+        "grossAddressableBenefitUsdPerYear": 10000,
+        "professionalDays": 8,
+        "benchmarkCalendarWeeks": "2.0",
+        "partialDevelopmentUsd": 6405,
+        "partialMonthlyOwnershipUsd": 216,
+        "modeledCompanyCloudUsdPerMonth": 16,
+        "modeledLabCloudUsdPerMonth": 3,
+        "partialFirstYearOwnershipUsd": 9002,
+        "firstYearResidualBeforeUnknownAdditionsUsd": 998,
+        "requiredBenefitToCoverPartialFirstYearCostUsd": 9002,
+        "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+      },
+      {
+        "id": "OPP-02",
+        "grossAddressableBenefitUsdPerYear": 15000,
+        "professionalDays": 10,
+        "benchmarkCalendarWeeks": "2.5",
+        "partialDevelopmentUsd": 8005,
+        "partialMonthlyOwnershipUsd": 316,
+        "modeledCompanyCloudUsdPerMonth": 16,
+        "modeledLabCloudUsdPerMonth": 3,
+        "partialFirstYearOwnershipUsd": 11802,
+        "firstYearResidualBeforeUnknownAdditionsUsd": 3198,
+        "requiredBenefitToCoverPartialFirstYearCostUsd": 11802,
+        "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+      },
+      {
+        "id": "OPP-04",
+        "grossAddressableBenefitUsdPerYear": 30000,
+        "professionalDays": 18,
+        "benchmarkCalendarWeeks": "4.6",
+        "partialDevelopmentUsd": 14416,
+        "partialMonthlyOwnershipUsd": 662,
+        "modeledCompanyCloudUsdPerMonth": 62,
+        "modeledLabCloudUsdPerMonth": 8,
+        "partialFirstYearOwnershipUsd": 22365,
+        "firstYearResidualBeforeUnknownAdditionsUsd": 7635,
+        "requiredBenefitToCoverPartialFirstYearCostUsd": 22365,
+        "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+      }
+    ],
+    "base": [
+      {
+        "id": "OPP-01",
+        "grossAddressableBenefitUsdPerYear": 12000,
+        "professionalDays": 11.5,
+        "benchmarkCalendarWeeks": "4.3",
+        "partialDevelopmentUsd": 9214,
+        "partialMonthlyOwnershipUsd": 344,
+        "modeledCompanyCloudUsdPerMonth": 44,
+        "modeledLabCloudUsdPerMonth": 7,
+        "partialFirstYearOwnershipUsd": 13342,
+        "firstYearResidualBeforeUnknownAdditionsUsd": -1342,
+        "requiredBenefitToCoverPartialFirstYearCostUsd": 13342,
+        "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+      },
+      {
+        "id": "OPP-02",
+        "grossAddressableBenefitUsdPerYear": 19200,
+        "professionalDays": 14,
+        "benchmarkCalendarWeeks": "4.8",
+        "partialDevelopmentUsd": 11214,
+        "partialMonthlyOwnershipUsd": 494,
+        "modeledCompanyCloudUsdPerMonth": 44,
+        "modeledLabCloudUsdPerMonth": 7,
+        "partialFirstYearOwnershipUsd": 17142,
+        "firstYearResidualBeforeUnknownAdditionsUsd": 2058,
+        "requiredBenefitToCoverPartialFirstYearCostUsd": 17142,
+        "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+      },
+      {
+        "id": "OPP-04",
+        "grossAddressableBenefitUsdPerYear": 30000,
+        "professionalDays": 24,
+        "benchmarkCalendarWeeks": "8.8",
+        "partialDevelopmentUsd": 19241,
+        "partialMonthlyOwnershipUsd": 1103,
+        "modeledCompanyCloudUsdPerMonth": 203,
+        "modeledLabCloudUsdPerMonth": 21,
+        "partialFirstYearOwnershipUsd": 32475,
+        "firstYearResidualBeforeUnknownAdditionsUsd": -2475,
+        "requiredBenefitToCoverPartialFirstYearCostUsd": 32475,
+        "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+      }
+    ],
+    "high": [
+      {
+        "id": "OPP-01",
+        "grossAddressableBenefitUsdPerYear": 40000,
+        "professionalDays": 15,
+        "benchmarkCalendarWeeks": "8.0",
+        "partialDevelopmentUsd": 12022,
+        "partialMonthlyOwnershipUsd": 472,
+        "modeledCompanyCloudUsdPerMonth": 72,
+        "modeledLabCloudUsdPerMonth": 11,
+        "partialFirstYearOwnershipUsd": 17683,
+        "firstYearResidualBeforeUnknownAdditionsUsd": 22317,
+        "requiredBenefitToCoverPartialFirstYearCostUsd": 17683,
+        "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+      },
+      {
+        "id": "OPP-02",
+        "grossAddressableBenefitUsdPerYear": 60000,
+        "professionalDays": 18,
+        "benchmarkCalendarWeeks": "8.6",
+        "partialDevelopmentUsd": 14422,
+        "partialMonthlyOwnershipUsd": 672,
+        "modeledCompanyCloudUsdPerMonth": 72,
+        "modeledLabCloudUsdPerMonth": 11,
+        "partialFirstYearOwnershipUsd": 22483,
+        "firstYearResidualBeforeUnknownAdditionsUsd": 37517,
+        "requiredBenefitToCoverPartialFirstYearCostUsd": 22483,
+        "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+      },
+      {
+        "id": "OPP-04",
+        "grossAddressableBenefitUsdPerYear": 100000,
+        "professionalDays": 30,
+        "benchmarkCalendarWeeks": "14.0",
+        "partialDevelopmentUsd": 24066,
+        "partialMonthlyOwnershipUsd": 1543,
+        "modeledCompanyCloudUsdPerMonth": 343,
+        "modeledLabCloudUsdPerMonth": 33,
+        "partialFirstYearOwnershipUsd": 42585,
+        "firstYearResidualBeforeUnknownAdditionsUsd": 57415,
+        "requiredBenefitToCoverPartialFirstYearCostUsd": 42585,
+        "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+      }
+    ]
+  },
+  "adverseCompanyBenchmarks": [
+    {
+      "id": "OPP-01",
+      "grossAddressableBenefitUsdPerYear": 6000,
+      "professionalDays": 18.5,
+      "benchmarkCalendarWeeks": "10.0",
+      "partialDevelopmentUsd": 14822,
+      "partialMonthlyOwnershipUsd": 672,
+      "modeledCompanyCloudUsdPerMonth": 72,
+      "modeledLabCloudUsdPerMonth": 11,
+      "partialFirstYearOwnershipUsd": 22883,
+      "firstYearResidualBeforeUnknownAdditionsUsd": -16883,
+      "requiredBenefitToCoverPartialFirstYearCostUsd": 22883,
+      "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+    },
+    {
+      "id": "OPP-02",
+      "grossAddressableBenefitUsdPerYear": 9600,
+      "professionalDays": 24,
+      "benchmarkCalendarWeeks": "11.0",
+      "partialDevelopmentUsd": 19222,
+      "partialMonthlyOwnershipUsd": 972,
+      "modeledCompanyCloudUsdPerMonth": 72,
+      "modeledLabCloudUsdPerMonth": 11,
+      "partialFirstYearOwnershipUsd": 30883,
+      "firstYearResidualBeforeUnknownAdditionsUsd": -21283,
+      "requiredBenefitToCoverPartialFirstYearCostUsd": 30883,
+      "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+    },
+    {
+      "id": "OPP-04",
+      "grossAddressableBenefitUsdPerYear": 15000,
+      "professionalDays": 45,
+      "benchmarkCalendarWeeks": "18.0",
+      "partialDevelopmentUsd": 36066,
+      "partialMonthlyOwnershipUsd": 2143,
+      "modeledCompanyCloudUsdPerMonth": 343,
+      "modeledLabCloudUsdPerMonth": 33,
+      "partialFirstYearOwnershipUsd": 61785,
+      "firstYearResidualBeforeUnknownAdditionsUsd": -46785,
+      "requiredBenefitToCoverPartialFirstYearCostUsd": 61785,
+      "interpretation": "Fictional labor plus modeled cloud only. Residual is not ROI or cash savings; unknown excluded costs remain additional."
+    }
+  ],
+  "baseFloorHeadroom": [
+    {
+      "id": "OPP-01",
+      "maximumAddressableBenefitReductionBeforeFloorPercent": "16.7",
+      "interpretation": "Sensitivity of the addressable premise, not a benefit-realization target."
+    },
+    {
+      "id": "OPP-02",
+      "maximumAddressableBenefitReductionBeforeFloorPercent": "47.9",
+      "interpretation": "Sensitivity of the addressable premise, not a benefit-realization target."
+    },
+    {
+      "id": "OPP-04",
+      "maximumAddressableBenefitReductionBeforeFloorPercent": "66.7",
+      "interpretation": "Sensitivity of the addressable premise, not a benefit-realization target."
+    }
+  ],
+  "baseScoreThresholdHeadroom": [
+    {
+      "id": "OPP-01",
+      "extraDevelopmentUsdUntilNextWorseAnchor": 786,
+      "extraMonthlyOwnershipUsdUntilNextWorseAnchor": 406
+    },
+    {
+      "id": "OPP-02",
+      "extraDevelopmentUsdUntilNextWorseAnchor": 13786,
+      "extraMonthlyOwnershipUsdUntilNextWorseAnchor": 256
+    },
+    {
+      "id": "OPP-04",
+      "extraDevelopmentUsdUntilNextWorseAnchor": 5759,
+      "extraMonthlyOwnershipUsdUntilNextWorseAnchor": 897
+    }
+  ],
+  "interpretation": "OPP-01 and OPP-02 are a practical tie. Wider uncertainty also overlaps OPP-04; no robust unique winner is established. An OPP-02 recommendation would be a management tradeoff for scenario value headroom within the low-burden pair, conditional on real single-human feasibility and costs.",
+  "checks": {
+    "approvedWeightsAndSurvivors": "Pass",
+    "adoptedBenefitBaselines": "Pass",
+    "anchorBoundaryArithmetic": "Pass",
+    "normalization": "Pass",
+    "validScores": "Pass",
+    "oneDecimalResults": "Pass",
+    "weightPerturbations": 16,
+    "redundancyCases": 3,
+    "profiles": 3,
+    "oneCriterionCases": 26,
+    "actualLabFeasibility": "Unknown - not tested by this script"
+  }
+}
